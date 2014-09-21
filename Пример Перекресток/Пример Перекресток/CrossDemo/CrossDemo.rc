@@ -1,0 +1,112 @@
+#include <windows.h>
+#include "CrossDemo.h"
+
+cross       BITMAP Cross.bmp
+controller  BITMAP Controller.bmp
+rightB      BITMAP RightB.bmp
+strainghtB  BITMAP StrainghtB.bmp
+leftB       BITMAP LeftB.bmp
+fairB       BITMAP FairB.bmp
+policeB     BITMAP PoliceB.bmp
+medicalB    BITMAP MedicalB.bmp
+rightR      BITMAP RightR.bmp
+strainghtR  BITMAP StrainghtR.bmp
+leftR       BITMAP LeftR.bmp
+fairR       BITMAP FairR.bmp
+policeR     BITMAP PoliceR.bmp
+medicalR    BITMAP MedicalR.bmp
+rightT      BITMAP RightT.bmp
+strainghtT  BITMAP StrainghtT.bmp
+leftT       BITMAP LeftT.bmp
+fairT       BITMAP FairT.bmp
+policeT     BITMAP PoliceT.bmp
+medicalT    BITMAP MedicalT.bmp
+rightL      BITMAP RightL.bmp
+strainghtL  BITMAP StrainghtL.bmp
+leftL       BITMAP LeftL.bmp
+fairL       BITMAP FairL.bmp
+policeL     BITMAP PoliceL.bmp
+medicalL    BITMAP MedicalL.bmp
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+CROSS_MENU MENU 
+ {
+   MENUITEM "&Стоп",             ID_Stop
+   MENUITEM "&О программе",      ID_About_pr
+  }
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+CROSS_ICON             ICON    DISCARDABLE     "CrossDemo.ICO"
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+/*begin_set DIALOG 73, 60, 175, 100
+          FONT 10, "Courier"
+          CAPTION "Начальные установки"
+          STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+ {
+    DEFPUSHBUTTON   "OK",IDOK,117,13,48,12,
+                    WS_CHILD | WS_VISIBLE | WS_TABSTOP
+    PUSHBUTTON      "Отмена",IDCANCEL,117,31,48,12,
+                    WS_CHILD | WS_VISIBLE | WS_TABSTOP
+    PUSHBUTTON      "Справка",IDC_Spravka,117,49,48,12,
+                    WS_CHILD | WS_VISIBLE | WS_TABSTOP
+    LTEXT           "Уровень",IDC_STATIC,12,20,32,10
+    LTEXT           "Скорость",IDC_STATIC,12,44,35,9
+    SCROLLBAR       IDC_SCROLLBAR_Level,82,18,9,12,
+                    SBS_VERT | WS_TABSTOP
+    SCROLLBAR       IDC_SCROLLBAR_Speed,82,42,9,12,
+                    SBS_VERT | WS_TABSTOP                    
+    EDITTEXT        IDC_Level,62,18,20,12,
+                    ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_TABSTOP
+    EDITTEXT        IDC_Speed,62,42,20,12,
+                    ES_AUTOHSCROLL | WS_CHILD | WS_VISIBLE | WS_TABSTOP
+    GROUPBOX        "",IDC_GB,7,9,98,55
+  }
+  
+result DIALOG 45, 20, 221, 145
+       CAPTION "Лучшие результаты"
+       STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+       FONT 10, "Courier"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,40,158,48,12
+    PUSHBUTTON      "Сброс результатов",ID_Reset,105,158,80,12
+    LTEXT           "           Имя              Уровень Скорость Результат",
+                    IDC_STATIC,2,10,217,10
+    GROUPBOX        "",IDC_STATIC,1,5,219,16
+    GROUPBOX        "",IDC_STATIC,1,20,219,135
+END
+
+name DIALOG 75, 60, 164, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Поздравляем!"
+FONT 10, "Courier"
+BEGIN
+    EDITTEXT        IDC_Name,31,29,102,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,57,50,50,12
+    LTEXT           "Вы попали в лучшую десятку.", IDC_STATIC,7,6,111,9
+    LTEXT           "Пожалуйста, введите свое имя:", IDC_STATIC,7,15,116,9
+END
+
+figures DIALOG  0, 0, 266, 190
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Фигуры"
+FONT 10, "Courier"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,9,227,50,12
+    PUSHBUTTON      "Отмена",IDCANCEL,65,227,50,12
+    PUSHBUTTON      "Справка",IDC_Spravka,121,227,50,12
+END
+*/
