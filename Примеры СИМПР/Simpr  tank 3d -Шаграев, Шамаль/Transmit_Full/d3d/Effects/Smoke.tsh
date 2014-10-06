@@ -1,0 +1,30 @@
+// Процедурарная текстура для анимированного дыма.
+
+
+float Noise3D( float3 P, float Amp, float Freq )
+{
+	return Amp*( 0.5 + 0.5*noise(P*Freq*5.0) );
+}
+
+float4 ColorFill( in float3 TC : POSITION,
+				  in float3 PS : PSIZE ) : COLOR
+{
+	float Amp = 0.5;
+	float Freq = 1.0;
+	float Sum = 0;
+
+	// 4 октавы.
+	for( int i=0; i < 4; i++ )
+	{
+		Sum += Noise3D( TC, Amp, Freq );
+		Freq *= 2;
+		Amp *= 0.5;
+	}
+	
+	float2 Dist2Cent = TC.xy - float2(0.5,0.5);
+	float Atten = 0.99 - 2.0*sqrt( Dist2Cent.x*Dist2Cent.x + Dist2Cent.y*Dist2Cent.y );
+	Atten = max( Atten, 0 );
+	float DepthAtten = exp(-5.0*TC.z);
+	float W = Noise3D( TC, 1.0, 1.0 )*Atten;
+	return float4( exp(-0.5*TC.z)*Sum.xxx, Atten*DepthAtten );
+}	

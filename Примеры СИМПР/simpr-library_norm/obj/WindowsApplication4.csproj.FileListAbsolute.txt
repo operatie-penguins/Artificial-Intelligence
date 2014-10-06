@@ -1,0 +1,48 @@
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\bin\Debug\WindowsApplication4.pdb
+E:\library\obj\Debug\WindowsApplication4.exe
+E:\library\obj\Debug\WindowsApplication4.pdb
+E:\library\bin\Debug\WindowsApplication4.exe
+E:\library\bin\Debug\WindowsApplication4.pdb
+E:\library\obj\Debug\ResolveAssemblyReference.cache
+E:\library\obj\Debug\WindowsApplication4.Form1.resources
+E:\library\obj\Debug\WindowsApplication4.Properties.Resources.resources
+E:\library\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+E:\laby\library_norm\obj\Debug\WindowsApplication4.exe
+E:\laby\library_norm\obj\Debug\WindowsApplication4.pdb
+E:\laby\library_norm\bin\Debug\WindowsApplication4.exe
+E:\laby\library_norm\bin\Debug\WindowsApplication4.pdb
+E:\laby\library_norm\obj\Debug\ResolveAssemblyReference.cache
+E:\laby\library_norm\obj\Debug\WindowsApplication4.Form1.resources
+E:\laby\library_norm\obj\Debug\WindowsApplication4.Properties.Resources.resources
+E:\laby\library_norm\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+E:\laby\library_norm\bin\Release\WindowsApplication4.exe
+E:\laby\library_norm\bin\Release\WindowsApplication4.pdb
+E:\laby\library_norm\obj\Release\ResolveAssemblyReference.cache
+E:\laby\library_norm\obj\Release\WindowsApplication4.Form1.resources
+E:\laby\library_norm\obj\Release\WindowsApplication4.Properties.Resources.resources
+E:\laby\library_norm\obj\Release\WindowsApplication4.csproj.GenerateResource.Cache
+E:\laby\library_norm\obj\Release\WindowsApplication4.exe
+E:\laby\library_norm\obj\Release\WindowsApplication4.pdb

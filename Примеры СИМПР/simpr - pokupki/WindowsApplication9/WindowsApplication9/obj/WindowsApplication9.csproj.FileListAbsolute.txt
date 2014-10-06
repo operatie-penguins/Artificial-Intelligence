@@ -1,0 +1,40 @@
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\bin\Debug\WindowsApplication9.exe
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\bin\Debug\WindowsApplication9.pdb
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.Properties.Resources.resources
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.csproj.GenerateResource.Cache
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.exe
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.pdb
+C:\Users\Алекс\Documents\Visual Studio 2005\Projects\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.Form1.resources
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.exe
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.pdb
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.exe
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.pdb
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Form1.resources
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Properties.Resources.resources
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.csproj.GenerateResource.Cache
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.exe
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.pdb
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.Form1.resources
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.Properties.Resources.resources
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\obj\Debug\WindowsApplication9.csproj.GenerateResource.Cache
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\bin\Debug\WindowsApplication9.exe
+C:\Documents and Settings\Администратор\Рабочий стол\Новая папка\WindowsApplication9\WindowsApplication9\bin\Debug\WindowsApplication9.pdb
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.exe
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.pdb
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.exe
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.pdb
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\ResolveAssemblyReference.cache
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Form1.resources
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Properties.Resources.resources
+D:\7\СИМПР ОТ МИШАНИ\Новая папка1\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.csproj.GenerateResource.Cache
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.exe
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.pdb
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.exe
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\bin\Release\WindowsApplication9.pdb
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\ResolveAssemblyReference.cache
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Form1.resources
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.Properties.Resources.resources
+D:\7\СИМПР ОТ МИШАНИ\###Предпоследний вариант\WindowsApplication9\WindowsApplication9\obj\Release\WindowsApplication9.csproj.GenerateResource.Cache

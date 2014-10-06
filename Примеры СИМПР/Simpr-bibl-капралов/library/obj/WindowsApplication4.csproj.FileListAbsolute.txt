@@ -1,0 +1,32 @@
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\library\bin\Debug\WindowsApplication4.pdb
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\WindowsApplication4.exe
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\WindowsApplication4.pdb
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\bin\Debug\WindowsApplication4.exe
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\bin\Debug\WindowsApplication4.pdb
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\ResolveAssemblyReference.cache
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\WindowsApplication4.Form1.resources
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\WindowsApplication4.Properties.Resources.resources
+N:\Public\файлы преподавателей\Гречкина\TI&IO\2008\Simpr-bibl-капралов\library\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache

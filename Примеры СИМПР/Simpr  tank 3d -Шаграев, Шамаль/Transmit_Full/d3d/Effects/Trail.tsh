@@ -1,0 +1,25 @@
+
+float Turbulent3D( in float3 P, int NOctaves )
+{
+	float Amp = 0.5;
+	float Freq = 1.0;
+	float Sum = 0;
+
+	for( int i=0; i < NOctaves; i++ )
+	{
+		Sum += Amp*( 0.5 + 0.5*noise(P*Freq*5.0) );
+		Freq *= 2;
+		Amp *= 0.5;
+	}
+	
+	return Sum;
+}
+
+
+float4 ColorFill( in float3 Pos : POSITION,
+				  in float3 PointSize : PSIZE ) : COLOR
+{	
+	// Отражаем Z во второй половине диапазона.
+	Pos.z = -2.0*abs( Pos.z - 0.5 ) + 1.0;
+	return float4( Turbulent3D( Pos, 2 ).xxx, 1 );
+}

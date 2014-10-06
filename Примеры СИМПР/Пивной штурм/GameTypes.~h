@@ -1,0 +1,34 @@
+//---------------------------------------------------------------------------
+
+#ifndef GameTypesH
+#define GameTypesH
+
+#include <Windows.h>
+
+#define TABLE_LENGTH 9  //длина барной стойки
+#define DRINK_TIME 3    //сколько ходов посетитель пьёт пиво?
+#define WRANGLE_TIME 3  //сколько ходов посетитель ругается?
+
+//игровые структуры
+typedef struct
+{
+        int TableNum;           //номер стойки, за которой стоит посетитель
+        int Position;           //текущая позиция за стойкой
+        bool HasJar;            //есть ли у него в руках кружка?
+        bool Drinking;          //пьёт?
+        int DrinkTime;          //сколько времени пьёт?
+        bool AlreadyDrink;      //уже пил?
+        bool Wrangle;           //ругается?
+        int WrangleTime;        //сколько времени ругается?
+        bool ToLongWrangle;     //очень долго ругается?
+        bool AlreadyTurn;       //посетитель сделал ход?
+} Visitor;
+
+//процедуры обработки посетителей
+Visitor*        CreateNewVisitor(int TableNum);
+void            SetVisitorDrinkingState(Visitor *Vis);
+void            SetVisitorWrangleState(Visitor *Vis);
+void            UpdateVisitor(Visitor *Vis);
+
+#endif
+ 

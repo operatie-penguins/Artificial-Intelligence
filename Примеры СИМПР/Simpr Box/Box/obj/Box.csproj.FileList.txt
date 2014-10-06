@@ -1,0 +1,9 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Box.Properties.Resources.resources
+obj\Debug\Box.csproj.GenerateResource.Cache
+bin\Debug\Box.exe
+bin\Debug\Box.pdb
+obj\Debug\Box.Form1.resources
+obj\Debug\Box.exe
+obj\Debug\Box.pdb
+obj\Debug\Box.Resource1.resources

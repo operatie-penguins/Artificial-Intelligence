@@ -1,0 +1,104 @@
+#ifndef sss
+#define sss
+#include <vcl.h>
+//---------------------------------------------------------------------------
+template <class T> class Storage
+{public:Storage(){mpList = new TList();}void add(T* aT){mpList->Add(aT);}
+T* get(int anPos){return reinterpret_cast<T*>(mpList->Items[anPos]);}
+void del(int anPos){if(anPos < mpList->Count)	mpList->Delete(anPos);}
+T* operator [](int anPos){return get(anPos);};
+int size(){return mpList->Count;}
+private: TList* mpList;};
+class BStorage{public:Graphics::TBitmap* getFrame(){
+Graphics::TBitmap* pB = new Graphics::TBitmap();if(!mfSt)pB->LoadFromFile("fon.bmp");
+else pB->LoadFromFile("fon2.bmp");
+return pB;}Graphics::TBitmap* getBitmap(int anPos){return mpB[anPos];}
+		BStorage(){mfSt = false;
+			TStringList* pList = new TStringList();pList->LoadFromFile("pictures.txt");
+			for(int i = 0; i < pList->Count; i++){
+				Graphics::TBitmap* pBitmap = new Graphics::TBitmap();
+				pBitmap->LoadFromFile(pList->Strings[i]);
+				if(i != 4){pBitmap->Transparent = true;
+					pBitmap->TransparentColor = TColor(0xffffff);pBitmap->TransparentMode = tmFixed;}
+				mpB.add(pBitmap);}delete pList;}Storage<Graphics::TBitmap> mpB;bool mfSt;};
+class PosCord{public:PosCord(double adX, double adY){mdYPos = adY;mdXPos = adX;} PosCord() {}
+int mdXPos, mdYPos;};
+class Drawable : public PosCord {public:
+		Drawable(int anBN, int anX, int anY, BStorage* apS)
+		: PosCord(anX, anY){mnBN = anBN;mpS = apS;}
+		virtual void draw(Graphics::TBitmap* apB)
+		{if(mnBN >= -1){apB->Canvas->Draw(mdXPos, mdYPos,mpS->getBitmap(mnBN));}}
+		int mnBN;	BStorage* mpS;};
+class Barmen : public Drawable{public:
+Barmen(int anBN, int anX, int anY, BStorage* apS)
+:Drawable(anBN,anX,anY,apS){}
+int mnDir; int mnM; int k;};
+class Man : public Drawable{public: Man(int anBN, int anX, int anY, BStorage* apS)
+:Drawable(anBN,anX,anY,apS){} int mnSit; bool h;};
+//---------------------------------------------------------------------------
+class Situation
+{
+	public:
+
+		Situation(TPaintBox* apPB)
+		{
+			mpB = new Barmen(1,80,125,&mBS);mpB->mnDir=1;mpB->mnM=0;mpPB=apPB;mnR=20;mnPos=0;
+			randomize();
+			for(int i=0; i<20;i++)
+			{
+				mP.add(new Man(0,-300 * i + random(500) - 500,230,&mBS));
+				mP[i]->mnSit=0;
+			  mP[i]->h = true;
+			}
+
+		}
+		bool isThere() {return mP.size()>0;}
+		bool areAll() {return mnR==0;}
+		bool looked() {if(!mP.size()) return 1; return mnPos>=mP.size();}
+		bool movedB() {return mpB->mnM;}
+		bool turn()
+		{
+			Graphics::TBitmap* pBi = mBS.getFrame();
+			mpB->draw(pBi);
+			for(int i=0;i<mP.size();i++)mP[i]->draw(pBi);
+			mpPB->Canvas->Draw(0,0,pBi);
+			mnPos=0;
+			mpB->mnM=0;
+			for(int i=0;i<mP.size();i++) if((mP[i]->mnSit) && (mP[i]->h)) mP[i]->mnSit++;
+			if(mpB->mdXPos < 81) {mpB->mnDir = 1; mpB->mnBN = 1;}
+			if(mpB->mdXPos > 459) {mpB->mnDir = -1; mpB->mnBN = 3;}
+			return 1;
+		}
+		bool going() {return mP[mnPos]->mdXPos<280;}
+		bool onChair() {return mP[mnPos]->mnSit!=0;}
+		bool after() {return mP[mnPos]->mdXPos>=280 && mP[mnPos]->mdXPos<600;}
+		bool del() { mP.del(mnPos);mnPos--;mnR--; return 1;}
+		bool next() {mnPos++;return 1;}
+		bool move() {mP[mnPos]->mdXPos+=3;return 1;}
+		bool going2() {return mP[mnPos]->mdXPos<260;}
+		bool n() {return mP[mnPos]->mdXPos>=260 && mP[mnPos]->mdXPos<=300;}
+		bool free() {for(int i=0;i<mP.size();i++) if(mP[i]->mnSit) return 0;return 1;}
+		bool sit() {mP[mnPos]->mnSit = 1; mP[mnPos]->h = false; mP[mnPos]->mdYPos = 150; return 1;}
+		bool sited() {return mP[mnPos]->mnSit>100;}
+		bool stand() {mP[mnPos]->mnSit=0; mP[mnPos]->h=true;mBS.mfSt=false;mP[mnPos]->mdYPos = 230;return 1;}
+		bool toR() {return mpB->mdXPos > 300;}
+		bool goR() {return mpB->mnDir == 1;}
+		bool nB() {return mpB->mdXPos>=260 && mpB->mdXPos<=300;}
+		bool serv() {for(int i=0;i<mP.size();i++) if(mP[i]->mnSit && !mP[i]->h) return 0; return 1;}
+		bool dirc() {mpB->mnDir *= -1; ;return 1;}
+		bool moveB() {mpB->mdXPos+=mpB->mnDir; mpB->mnM=1;
+		              if(!mpB->k) mpB->mnBN = 2 - mpB->mnDir; else mpB->k--; return 1;}
+		bool give() {for(int i=0;i<mP.size();i++) if(mP[i]->mnSit) {
+		       mP[i]->h=true; mBS.mfSt=true;} mpB->mnM=1;mpB->mnBN=2; mpB->k=10; return 1;}
+
+	protected:
+
+		Storage<Man> mP;
+		Barmen* mpB;
+		BStorage mBS;
+		TPaintBox* mpPB;
+		int mnPos;
+		int mnR; //Remaining people
+};
+//---------------------------------------------------------------------------
+#endif

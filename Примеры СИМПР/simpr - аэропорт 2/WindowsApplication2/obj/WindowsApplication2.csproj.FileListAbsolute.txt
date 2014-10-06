@@ -1,0 +1,35 @@
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.Form1.resources
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.Properties.Resources.resources
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.csproj.GenerateResource.Cache
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Documents and Settings\tmp\My Documents\Visual Studio 2005\Projects\WindowsApplication2\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+G:\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+G:\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+G:\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+G:\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+G:\Пример Симпр\WindowsApplication2\obj\Debug\ResolveAssemblyReference.cache
+G:\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.Form1.resources
+G:\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.Properties.Resources.resources
+G:\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.csproj.GenerateResource.Cache
+G:\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.exe.config
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.exe
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.pdb
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.exe
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\bin\Debug\WindowsApplication2.pdb
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.Form1.resources
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.Properties.Resources.resources
+C:\Documents and Settings\tmp\Desktop\Пример Симпр\WindowsApplication2\obj\Debug\WindowsApplication2.csproj.GenerateResource.Cache
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\bin\Release\WindowsApplication2.exe.config
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\WindowsApplication2.exe
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\WindowsApplication2.pdb
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\bin\Release\WindowsApplication2.exe
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\bin\Release\WindowsApplication2.pdb
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\WindowsApplication2.Form1.resources
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\WindowsApplication2.Properties.Resources.resources
+C:\Documents and Settings\freest\Рабочий стол\Lab1(1.0)\WindowsApplication2\obj\Release\WindowsApplication2.csproj.GenerateResource.Cache

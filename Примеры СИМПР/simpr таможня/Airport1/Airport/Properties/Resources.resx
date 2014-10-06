@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Высокий1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Высокий8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Высокий8.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийВыход5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийВыход5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСтрельба1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСтрельба1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСтрельба2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСтрельба2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумка1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумка1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумка2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумка3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумка3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумка4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумка4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумкаВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумкаВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумкаВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумкаВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумкаВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумкаВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумкаВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумкаВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийСумкаВыход5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийСумкаВыход5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийЧемодан1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийЧемодан1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийЧемодан2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийЧемодан2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийЧемодан3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийЧемодан3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ВысокийЧемодан4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ВысокийЧемодан4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="конвеер1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\конвеер1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="конвеер2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\конвеер2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мент8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мент8.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МентЧесть" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МентЧесть.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мигалка1_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мигалка1(1).png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мигалка1_2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мигалка1(2).png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мигалка2_1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мигалка2(1).png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мигалка2_2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мигалка2(2).png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Мужик7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Мужик7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикВыход5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикВыход5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСтрельба1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСтрельба1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСтрельба2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСтрельба2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумка1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумка1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумка2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумка3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумка3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумка4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумка4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумкаВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумкаВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумкаВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумкаВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумкаВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумкаВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумкаВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумкаВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикСумкаВыход5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикСумкаВыход5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикЧемодан1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикЧемодан1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикЧемодан2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикЧемодан2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикЧемодан3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикЧемодан3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="МужикЧемодан4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\МужикЧемодан4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="сапер1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\сапер1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер8.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Сапер9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Сапер9.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака10.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака11.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака12.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака8.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Собака9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Собака9.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Тетка1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Тетка1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Тетка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Тетка2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый5.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Толстый7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Толстый7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСтрельба1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСтрельба1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСтрельба2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСтрельба2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумка1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумка1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумка2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумка2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумка3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумка3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумка4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумка4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумкаВыход1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумкаВыход1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумкаВыход2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумкаВыход2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумкаВыход3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумкаВыход3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйСумкаВыход4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйСумкаВыход4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйЧемодан1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйЧемодан1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйЧемодан2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйЧемодан2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйЧемодан3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйЧемодан3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ТолстыйЧемодан4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ТолстыйЧемодан4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Фон_Терминал" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Фон-Терминал.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

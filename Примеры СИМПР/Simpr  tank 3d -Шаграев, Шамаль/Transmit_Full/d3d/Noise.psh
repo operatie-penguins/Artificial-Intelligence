@@ -1,0 +1,26 @@
+// Заполняет текстуру шумом.
+
+float Noise01( float2 P, float Amp, float Freq )
+{
+	return Amp*( 0.5 + 0.5*noise(P*Freq*5.0) );
+}
+
+float4 ColorFill( in float2 TC : POSITION,
+				  in float2 PS : PSIZE ) : COLOR
+{
+	float Amp = 0.5;
+	float Freq = 1.0;
+	float Sum = 0;
+
+	// 4 октавы.
+	for( int i=0; i < 4; i++ )
+	{
+		Sum += Noise01( TC, Amp, Freq );
+		Freq *= 2;
+		Amp *= 0.5;
+	}
+	
+	return float4( Sum.xxx, 1.0 );
+}	
+
+				

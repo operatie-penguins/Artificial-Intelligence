@@ -1,0 +1,24 @@
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\bin\Debug\LabaOne.exe
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\bin\Debug\LabaOne.pdb
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.Form1.resources
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.Properties.Resources.resources
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.csproj.GenerateResource.Cache
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.exe
+C:\Documents and Settings\Администратор\Мои документы\1институт\8 семестр\Теория игр\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.pdb
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.exe
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.pdb
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\bin\Debug\LabaOne.exe
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\bin\Debug\LabaOne.pdb
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.Form1.resources
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.Properties.Resources.resources
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Debug\LabaOne.csproj.GenerateResource.Cache
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\bin\Release\LabaOne.exe
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\bin\Release\LabaOne.pdb
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\LabaOne.Form1.resources
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\LabaOne.Properties.Resources.resources
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\LabaOne.csproj.GenerateResource.Cache
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\LabaOne.exe
+C:\Documents and Settings\student\Desktop\Laba_one\Laba one\LabaOne2005\LabaOne\obj\Release\LabaOne.pdb

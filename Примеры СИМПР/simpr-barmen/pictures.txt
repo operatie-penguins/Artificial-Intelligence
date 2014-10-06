@@ -1,0 +1,6 @@
+chel-left.bmp
+barmen-right.bmp
+barmen.bmp
+barmen-left.bmp
+fon.bmp
+fon2.bmp

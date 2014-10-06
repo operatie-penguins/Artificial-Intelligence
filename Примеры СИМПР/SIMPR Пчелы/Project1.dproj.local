@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008.04.13 17:20:18.921.pas,C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\Unit2.pas=C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\SIMPR Леше\Unit2.pas</Transaction>
+    <Transaction>2008.04.13 17:20:20.078.pas,C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\Unit1.pas=C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\SIMPR Леше\Unit1.pas</Transaction>
+    <Transaction>2008.04.13 17:20:20.078.dfm,C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\Unit1.dfm=C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\SIMPR Леше\Unit1.dfm</Transaction>
+    <Transaction>2008.04.13 17:20:20.718.dproj,C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\Project1.dproj=C:\Documents and Settings\Stas\Мои документы\RAD Studio\Projects\SIMPR Леше\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

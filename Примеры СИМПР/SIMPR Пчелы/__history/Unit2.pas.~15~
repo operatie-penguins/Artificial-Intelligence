@@ -1,0 +1,33 @@
+unit Unit2;
+
+interface
+
+uses
+  ExtCtrls;
+
+type
+
+  Bee = Record
+    State: Integer; //(0 - в улее; 1 - летит к цветку; 2 - летит в улей; 3 - собирает пыльцу)
+    IsWithHoney: Boolean;
+    Flower: Integer; //номер цветка, 0 - не находится на цветке
+    Step: Integer;
+    X: Integer;
+    Y: Integer;
+    image: TImage;
+  end;
+
+  Flower = Record
+    IsWithPollen: Boolean;
+    IsWithBee: Boolean;
+    Bee: Integer;
+    X: Integer;
+    Y: Integer;
+    image: TImage;
+  end;
+
+
+
+implementation
+
+end.

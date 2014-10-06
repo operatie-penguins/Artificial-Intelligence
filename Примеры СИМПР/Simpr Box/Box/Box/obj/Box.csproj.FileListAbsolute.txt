@@ -1,0 +1,9 @@
+F:\Box\Box\Box\obj\Debug\Box.exe
+F:\Box\Box\Box\obj\Debug\Box.pdb
+F:\Box\Box\Box\bin\Debug\Box.exe
+F:\Box\Box\Box\bin\Debug\Box.pdb
+F:\Box\Box\Box\obj\Debug\ResolveAssemblyReference.cache
+F:\Box\Box\Box\obj\Debug\Box.Form1.resources
+F:\Box\Box\Box\obj\Debug\Box.Properties.Resources.resources
+F:\Box\Box\Box\obj\Debug\Box.Resource1.resources
+F:\Box\Box\Box\obj\Debug\Box.csproj.GenerateResource.Cache

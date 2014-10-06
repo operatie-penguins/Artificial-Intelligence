@@ -1,0 +1,1065 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Main.h"
+#include "GameTypes.h"
+#include <list>
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+//дефайны для работы с СИМПРом
+#define USERMESSAGE "MyMessage"
+#define YES     1
+#define NO      0
+
+#define CONDITIONS      0
+#define ACTIONS         1
+
+#define DEBUG 0
+
+UINT OurMessage;
+
+std::list<Visitor> Visitors;    //список посетителей
+Barman MainBarman;	   			//бармен
+std::list<Jar> Jars;			//кружки
+UINT VisitorsDone = 0;            //количество сходивших посетителей
+UINT VisitorsSpeed = 1;			//скорость посетителей
+bool AllVisitorsTurned = false; //все посетители сходили
+UINT CurrentVisitor;            //номер текущего посетителя
+bool TryToCreateVisitor = false;        //была попытка создать посетителя?
+
+
+TMainForm *MainForm;
+
+//---------------------------------------------------------------------------
+__fastcall TMainForm::TMainForm(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::FormCreate(TObject *Sender)
+{
+        randomize();
+		OurMessage = RegisterWindowMessage(USERMESSAGE);
+		ZeroMemory(&MainBarman,sizeof(Barman));
+		MainBarman.TableNum = rand() % 4;
+		if (!MainBarman.TableNum)
+        	MainBarman.TableNum++;
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::WndProc(Messages::TMessage &Message)
+{
+        if(Message.Msg == OurMessage)
+                Message.Result = MainGameProc(Message.WParamHi,Message.WParamLo,Message.LParam);
+        else
+				TCustomForm::WndProc(Message);
+}
+//---------------------------------------------------------------------------
+int TMainForm::MainGameProc(Word WParamHi, Word WParamLo, int LParam)
+{
+        Application->ProcessMessages();
+        Sleep(100);
+
+        switch(WParamHi)
+        {
+		//условия
+        case CONDITIONS:
+                {
+                        switch(WParamLo)
+                        {
+                        //таблица 1
+                        case 1:
+                                {
+                                        if (DEBUG) MessageBox(MainForm->Handle,"Условия->Таблица1","BeerStorm Debug",16);
+
+                                        switch(LParam)
+                                        {
+                                        //Пробовали создать посетителя?
+                                        case 1:
+                                                {
+														return TryToCreateVisitor;
+                                                }
+                                        //Посетители есть?
+                                        case 2:
+                                                {
+                                                        if (Visitors.size() > 0)
+                                                                return YES;
+                                                        return NO;
+                                                }
+                                        //Посетители ходили?
+                                        case 3:
+                                                {
+														if (Visitors.size() == 0)
+															return NO;
+														
+														std::list<Visitor>::iterator it;
+                                                        for (it = Visitors.begin(); it != Visitors.end(); it++)
+                                                        {
+																if (it->AlreadyTurn == false)
+																{
+																	if (DEBUG)
+																		MessageBox(MainForm->Handle,"Не все посетители сходили!","BeerStorm Debug",16);
+																	return NO;
+																}
+                                                        }
+
+														return YES;
+                                                }
+                                        //Бармен ходил?
+                                        case 4:
+                                                {
+                                                        return MainBarman.AlreadyTurn;
+                                                }
+                                        //Свободные дорожки есть?
+                                        case 5:
+                                                {
+                                                        if (Visitors.size() < 3)
+                                                                return YES;
+                                                                
+                                                        return NO;
+												}
+                                        //Отрицательный баланс?
+										case 6:
+                                            	{
+													if (StrToInt(GamePoints->Caption) < 0)
+														return YES;
+
+													return NO;
+												}
+										//Кружки полетали?
+										case 7:
+												{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+														{
+																if (jit->AlreadyTurn == false)
+																{
+																	if (DEBUG)
+																		MessageBox(MainForm->Handle,"Не все посетители сходили!","BeerStorm Debug",16);
+																	return NO;
+																}
+														}
+
+														return YES;
+												}
+										//Кружки есть?
+										case 8:
+												{
+														if (Jars.size() > 0)
+															return YES;
+
+														return NO;
+												}
+										//Обслужено 20 посетителей?
+										case 9:
+												{
+														if (VisitorsDone >= VISITORS_DONE)
+															return YES;
+
+														return NO;
+												}
+										//Заработано больше 100 очков сверху?
+										case 10:
+												{
+														if (StrToInt(GamePoints->Caption) >= 600)
+															return YES;
+
+														return NO;
+												}
+										}
+										break;
+								}
+						//таблица 2
+						case 2:
+								{
+										if (DEBUG) MessageBox(MainForm->Handle,"Условия->Таблица2","BeerStorm Debug",16);
+
+                                        switch(LParam)
+										{
+                                        //Есть в руках пиво?
+										case 1:
+                                                {
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+																if (it->AlreadyTurn == false)
+																	return it->HasJar;
+														break;
+												}
+										//Посетитель долго пьёт?
+										case 2:
+												{       std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+																if (it->AlreadyTurn == false)
+																	if (it->DrinkTime >= DRINK_TIME)
+																		return YES;
+																	else
+																		return NO;
+														break;
+												}
+                                        //Есть ещё посетители, которые не ходили?
+										case 3:
+                                                {
+														UINT VisNotTurn = 0;
+
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+																if (it->AlreadyTurn == false)
+                                                                        VisNotTurn++;
+
+                                                        if (VisNotTurn > 1)
+																return YES;
+                                                        
+														return NO;
+												}
+										//Посетитель в конце стойки?
+										case 4:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+															if (it->AlreadyTurn == false)
+															{
+																if (it->Position == TABLE_LENGTH)
+																	return YES;
+																else
+																	return NO;
+															}
+														}
+														break;
+												}
+										//Посетитель ругается?
+										case 5:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+															if (it->AlreadyTurn == false)
+																return it->Wrangle;
+														}
+														break;
+												}
+										//Посетитель долго ругается?
+										case 6:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+															if (it->AlreadyTurn == false)
+															{
+																if (it->WrangleTime >= WRANGLE_TIME)
+																	return YES;
+																else
+																	return NO;
+															}
+														}
+														break;
+												}
+										//Есть рядом кружка?
+										case 7:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+															if (it->AlreadyTurn == false)
+															{
+																std::list<Jar>::iterator jit;
+																for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																{
+																	if ((jit->TableNum == it->TableNum) && (!jit->Reverse))
+																		if (jit->Position <= it->Position)
+																			return YES;
+																}
+
+																return NO;
+															}
+														}
+														break;
+												}
+										//Ранее возмущался?
+										case 8:
+                                        	{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													if (it->AlreadyTurn == false)
+													{
+														if (it->WrangleTime > 0)
+															return YES;
+														return NO;
+                                                    }
+												}
+												break;
+											}
+										}
+
+										return false;
+								}
+						//таблица 3
+						case 3:
+								{
+										if (DEBUG) MessageBox(MainForm->Handle,"Условия->Таблица3","BeerStorm Debug",16);
+
+                                        switch(LParam)
+										{
+										//Необслуженные посетители есть?
+										case 1:
+											{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+														if (it->HasJar == false)
+														{
+															bool flag = false;
+															std::list<Jar>::iterator jit;
+															for (jit = Jars.begin(); jit != Jars.end(); jit++)
+															{
+																if (jit->TableNum == it->TableNum)
+																	flag = true;
+															}
+
+															if (flag)
+																continue;
+
+															return YES;
+														}
+												}
+
+												return NO;
+											}
+										//Необслуженные посетители далеко?
+										case 2:
+												{
+														return YES;
+												}
+										//Летящая кружка есть?
+										case 3:
+                                                {                                                       
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+															if (jit->Reverse)
+																return YES;
+																
+														return NO;
+												}
+										//Бармен рядом с летящей кружкой?
+										case 4:
+												{
+                                                        std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+															if (jit->Reverse)
+																if (MainBarman.TableNum == jit->TableNum)
+																	return YES;
+
+														return NO;
+												}
+										//Мусор есть?
+										case 5:
+												{
+														return NO;
+												}
+										//Бармен рядом с мусором?
+										case 6:
+												{
+														return YES;
+												}
+										//Подметает?
+										case 7:
+                                        	{
+												return MainBarman.isCleaning;
+											}
+										//Долго подметает?
+										case 8:
+                                        	{
+												if (MainBarman.CleaningTime >= CLEANING_TIME)
+													return YES;
+
+												return NO;
+											}
+										//Есть пиво в руках?
+										case 9:
+											{
+												return MainBarman.HaveBeer;
+											}
+										//Бармен рядом с ближайшим необслуженным посетителем?
+										case 10:
+											{
+												if (Visitors.size() == 0)
+													return YES;
+
+												bool GoodFlag = false;
+
+												std::list<Visitor>::iterator maxit = Visitors.begin();
+
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													bool flag = false;
+
+													if (it->HasJar)
+														continue;
+
+													if (it->HasJar == false)
+													{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+														{
+															if (jit->TableNum == it->TableNum)
+																flag = true;
+														}
+													}
+
+													if (!flag)
+													{
+														if (!GoodFlag)
+														{
+															maxit = it;
+															GoodFlag = true;
+														}
+
+														if ((it->Position == maxit->Position) && (!maxit->Wrangle))
+															maxit = it;
+
+														if (it->Position > maxit->Position)
+															maxit = it;
+													}
+												}
+
+												if (GoodFlag)
+												{
+													/*AnsiString str;
+													str = "Необслуженный посетитель на дорожке " + IntToStr(maxit->TableNum) + "!";
+													MessageBox(MainForm->Handle,str.c_str(),"!!!",16);*/
+
+													if (maxit->TableNum == MainBarman.TableNum)
+														return YES;
+												}
+												
+												return NO;
+											}
+										}
+
+										return false;
+								}
+						//таблица 4
+						case 4:
+								{
+										if (DEBUG) MessageBox(MainForm->Handle,"Условия->Таблица4","BeerStorm Debug",16);
+
+                                        switch(LParam)
+										{
+										//Есть ещё кружки?
+										case 1:
+                                                {
+														UINT JarNotTurn = 0;
+
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																		JarNotTurn++;
+
+														if (JarNotTurn > 1)
+																return YES;
+                                                        
+														return NO;
+												}
+										//Летим к посетителю?
+										case 2:
+												{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																	return !jit->Reverse;
+														break;
+												}
+										//Упали со стола?
+										case 3:
+												{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																	if (jit->Position > TABLE_LENGTH)
+																		return YES;
+														return NO;
+												}
+										//Может разобъёмся? Стол, кажется, неровный...
+										case 4:
+												{
+														if (rand() % 100 < 5)
+															return YES;
+
+														return NO;
+												}
+										}
+
+										return false;
+								}
+						}
+
+						break;
+				}
+		//действия
+        case ACTIONS:
+                {
+                        switch(WParamLo)
+                        {
+                        //таблица 1
+                        case 1:
+                                {
+										switch(LParam)
+                                        {
+                                        //Попытаться создать посетителя
+                                        case 1:
+                                                {
+														TryToCreateVisitor = true;
+														
+														if (DEBUG) MessageBox(MainForm->Handle,"Создаём посетителя!","111",16);
+
+														if (rand() % 100 > VISIT_CHANCE)
+															return true;
+
+														bool table1,
+                                                             table2,
+                                                             table3;
+
+                                                        table1 =
+                                                        table2 =
+                                                        table3 = false;
+
+                                                        std::list<Visitor>::iterator it;
+
+                                                        for (it = Visitors.begin(); it != Visitors.end(); it++)
+                                                        {
+                                                                if (it->TableNum == 1) table1 = true;
+                                                                if (it->TableNum == 2) table2 = true;
+                                                                if (it->TableNum == 3) table3 = true;
+                                                        }
+
+                                                        if (!table1)
+                                                        {
+                                                                Visitors.insert(Visitors.end(),*CreateNewVisitor(1));
+																return YES;
+														}
+														if (!table2)
+														{
+																Visitors.insert(Visitors.end(),*CreateNewVisitor(2));
+																return YES;
+														}
+														if (!table3)
+														{
+																Visitors.insert(Visitors.end(),*CreateNewVisitor(3));
+																return YES;
+                                                        }
+                                                        break;
+                                                }
+                                        //Обнулить флаги ходов
+                                        case 2:
+												{
+														if (DEBUG) MessageBox(MainForm->Handle,"Обнуляем флаги ходов!","BeerStorm Debug",16);
+
+														TryToCreateVisitor = false;
+
+														std::list<Visitor>::iterator it;
+                                                        for (it = Visitors.begin(); it != Visitors.end(); it++)
+																it->AlreadyTurn = false;
+
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																jit->AlreadyTurn = false;
+
+														MainBarman.AlreadyTurn = false;
+														MainBarman.CleaningJar = false;
+                                                        break;
+												}
+										//Установить флаг попытки создания посетителя
+										case 3:
+												{
+														TryToCreateVisitor = true;
+														break;
+												}
+										//Объявить о проигрыше
+										case 4:
+												{
+														MessageBox(MainForm->Handle,"Баланс бармена меньше нуля! Он проиграл! Игра закончена :-P","BeerStorm Debug",16);
+														break;
+												}
+										//Уведомить о завершении игры
+										case 5:
+											{
+												MessageBox(MainForm->Handle,"Бармен обслужил необходимое кол-во человек, но не набрал достаточное кол-во очков! Его скорее всего уволят...","BeerStorm Debug",16);
+												break;
+											}
+										//Поздравить с победой
+										case 6:
+											{
+												MessageBox(MainForm->Handle,"Бармен обслужил необходимое кол-во человек и набрал требуемое кол-во очков! Поздравляем с победой!","BeerStorm Debug",16);
+												break;
+											}
+                                        //Повысить скорость посетителей
+										case 7:
+                                        	{
+												VisitorsSpeed = 2;
+												break;
+                                            }
+										}
+										return YES;
+								}
+						 //таблица 2
+                        case 2:
+                                {
+                                        switch(LParam)
+                                        {
+                                        //Сделать шаг вперёд
+                                        case 1:
+                                                {
+                                                        std::list<Visitor>::iterator it;
+                                                        for (it = Visitors.begin(); it != Visitors.end(); it++)
+                                                        {
+                                                                if (it->AlreadyTurn == false)
+                                                                {
+                                                                        it->Position++;
+																		if (DEBUG) MessageBox(MainForm->Handle,"Двигаем посетителя!","BeerStorm Debug",16);
+                                                                        return YES;
+                                                                }
+                                                        }
+                                                        break;
+                                                }
+										//Перейти к следующему посетителю
+										case 2:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+																if (it->AlreadyTurn == false)
+																{
+																		if (DEBUG) MessageBox(MainForm->Handle,"Переходим к следующему посетителю!","BeerStorm Debug",16);
+																		it->AlreadyTurn = true;
+																		break;
+																}
+														}
+														break;
+												}
+                                        //Завершить ход текущим посетителем
+										case 3:
+												{
+														std::list<Visitor>::iterator it;
+														for (it = Visitors.begin(); it != Visitors.end(); it++)
+														{
+																if (it->AlreadyTurn == false)
+																{
+																		if (DEBUG) MessageBox(MainForm->Handle,"Последний посетитель сходил!","BeerStorm Debug",16);
+																		it->AlreadyTurn = true;
+																		break;
+																}
+														}
+														break;
+												}
+										//Ругаться
+										case 4:
+                                        	{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													if (it->AlreadyTurn == false)
+													{
+														if (DEBUG) MessageBox(MainForm->Handle,"Посетитель ругается!","BeerStorm Debug",16);
+														it->Wrangle = true;
+														it->WrangleTime++;
+														return true;
+													}
+												}
+											}
+										//Сделать запись в книгу жалоб
+										case 5:
+											{
+												if (DEBUG) MessageBox(MainForm->Handle,"Посетитель сделал запись в книгу жалоб!","BeerStorm Debug",16);
+                                                UpdateGamePoints(-100);
+												return true;
+											}
+										//Уйти
+										case 6:
+											{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													if (it->AlreadyTurn == false)
+													{
+														if (DEBUG) MessageBox(MainForm->Handle,"Посетитель уходит!","BeerStorm Debug",16);
+														Visitors.erase(it);
+														VisitorsDone++;
+														return true;
+													}
+												}
+											}
+										//Взять кружку
+										case 7:
+											{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													if (it->AlreadyTurn == false)
+													{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+														{
+															if (jit->TableNum == it->TableNum)
+															{
+																it->HasJar = true;
+																it->Wrangle = false;
+																Jars.erase(jit);
+																return YES;
+															}
+														}
+													}
+												}
+												return YES;
+											}
+										//Пить
+										case 8:
+											{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+													if (it->AlreadyTurn == false)
+														it->DrinkTime++;
+
+												return YES;
+											}
+										//Бросить кружку
+										case 9:
+											{
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+													if (it->AlreadyTurn == false)
+													{
+                                                        it->HasJar = false;
+														Jars.insert(Jars.end(), *CreateNewJar(it->TableNum, it->Position, true));
+                                                    	return YES;
+													}
+
+												break;
+											}
+										//Заплатить за выпивку
+										case 10:
+                                        	{
+												UpdateGamePoints(20);
+												break;
+											}
+										//Дать на чай
+										case 11:
+											{
+												UpdateGamePoints(10);
+												break;
+											}
+										}
+										return YES;
+								}
+						//таблица 3
+						case 3:
+                                {
+                                        switch(LParam)
+                                        {
+										//Переместиться к ближайшему мусору
+                                        case 1:
+                                                {
+                                                        return YES;
+                                                }
+										//Подметать
+										case 2:
+												{
+														MainBarman.isCleaning = true;
+														MainBarman.CleaningTime++;
+														break;
+												}
+										//Прекратить подметать
+										case 3:
+												{
+														MainBarman.isCleaning = false;
+														break;
+												}
+										//Переместиться в сторону ближайшей летящей кружки
+										case 4:
+											{
+												if (Jars.size() == 0)
+													return YES;
+
+												std::list<Jar>::iterator maxjit = Jars.begin();
+
+                                                std::list<Jar>::iterator jit;
+												for (jit = Jars.begin(); jit != Jars.end(); jit++)
+													if (jit->Reverse)
+														if (jit->Position >= maxjit->Position)
+															maxjit = jit;
+
+												if (MainBarman.TableNum < maxjit->TableNum)
+												{
+													MainBarman.TableNum++;
+													break;
+												}
+
+												if (MainBarman.TableNum > maxjit->TableNum)
+												{
+													MainBarman.TableNum--;
+													break;
+                                                }
+
+												break;
+											}
+										//Поймать кружку
+										case 5:
+											{
+												std::list<Jar>::iterator jit;
+												for (jit = Jars.begin(); jit != Jars.end(); jit++)
+													if (jit->Reverse)
+														if ((jit->Position >= TABLE_LENGTH) && (MainBarman.TableNum == jit->TableNum))
+														{
+															Jars.erase(jit);
+															return YES;
+														}
+
+												return YES;
+											}
+										//Налить пиво
+										case 6:
+											{
+												MainBarman.HaveBeer = true;
+												break;
+											}
+										//Переместиться в сторону ближайшего необслуженного посетителя
+										case 7:
+											{
+												if (Visitors.size() == 0)
+													return YES;
+
+												bool GoodFlag = false;
+
+												std::list<Visitor>::iterator maxit = Visitors.begin();
+
+												std::list<Visitor>::iterator it;
+												for (it = Visitors.begin(); it != Visitors.end(); it++)
+												{
+													bool flag = false;
+
+                                                    if (it->HasJar)
+														continue;
+
+													if (it->HasJar == false)
+													{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+														{
+															if (jit->TableNum == it->TableNum)
+																flag = true;
+														}
+													}
+
+													if (!flag)
+													{
+														if (!GoodFlag)
+														{
+															maxit = it;
+															GoodFlag = true;
+														}
+
+														if ((it->Position == maxit->Position) && (it->TableNum == MainBarman.TableNum))
+															maxit = it;
+
+														if (it->Position > maxit->Position)
+															maxit = it;
+													}
+												}
+
+												if (GoodFlag)
+												{
+													/*AnsiString str;
+													str = "Необслуженный посетитель на дорожке " + IntToStr(maxit->TableNum) + "!";
+													MessageBox(MainForm->Handle,str.c_str(),"!!!",16);*/
+
+													if (maxit->TableNum > MainBarman.TableNum)
+														MainBarman.TableNum++;
+
+													if (maxit->TableNum < MainBarman.TableNum)
+														MainBarman.TableNum--;
+												}
+
+												break;
+											}
+										//Кинуть кружку
+										case 8:
+											{
+												MainBarman.HaveBeer = false;
+												Jars.insert(Jars.end(), *CreateNewJar(MainBarman.TableNum));
+												break;
+											}
+										//Протирать кружки
+										case 9:
+											{
+												MainBarman.CleaningJar = true;
+												break;
+											}
+										//Закончить ход
+										case 10:
+											{
+												MainBarman.AlreadyTurn = true;
+												break;
+											}
+										}
+                                        return YES;
+								}
+						 //таблица 4
+						case 4:
+                                {
+                                        switch(LParam)
+                                        {
+										//Летим дальше
+                                        case 1:
+												{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																{
+																	jit->Position -= 3;
+
+                                                                    std::list<Visitor>::iterator it;
+																	for (it = Visitors.begin(); it != Visitors.end(); it++)
+																		if ((jit->TableNum == it->TableNum) && (jit->Position < it->Position))
+																			jit->Position = it->Position;
+																	break;
+																}
+														break;
+												}
+										//Летим назад
+										case 2:
+											{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																{
+																	jit->Position += 2;
+																	if (jit->Position > TABLE_LENGTH+1)
+																		jit->Position = TABLE_LENGTH+1;
+																	break;
+																}
+														break;
+											}
+										//Разбиться
+										case 3:
+											{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																{
+																	Jars.erase(jit);
+																	break;
+																}
+														break;
+											}
+										//Перейти к следующей кружке
+										case 4:
+											{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																{
+																	jit->AlreadyTurn = true;
+																	break;
+																}
+														break;
+											}
+										//Закончить ход текущей кружкой
+										case 5:
+											{
+														std::list<Jar>::iterator jit;
+														for (jit = Jars.begin(); jit != Jars.end(); jit++)
+																if (jit->AlreadyTurn == false)
+																{
+																	jit->AlreadyTurn = true;
+																	break;
+																}
+														break;
+											}
+										//Вычесть очки за разбитую кружку
+										case 6:
+                                        	{
+												MessageBox(MainForm->Handle,"Бармен неумело бросил кружку и она разбилась!","Beer Storm",16);
+												UpdateGamePoints(-50);
+												break;
+											}
+										//Вычесть очки за непойманную кружку
+										case 7:
+											{
+												UpdateGamePoints(-30);
+                                            }
+										}
+										return YES;
+								}
+						}
+						break;
+				}
+		}
+
+		return 0;
+}
+//---------------------------------------------------------------------------
+void TMainForm::DrawGameObjects()
+{
+	MainForm->Repaint();
+
+	std::list<Visitor>::iterator it;
+
+	for (it = Visitors.begin(); it != Visitors.end(); it++)
+	{
+		if (it->Wrangle)
+		{
+			GameImages->Draw(MainForm->Canvas,8+49*it->Position,57*(it->TableNum*2-1),1,true);
+        	continue;
+		}
+
+		if (it->HasJar)
+			GameImages->Draw(MainForm->Canvas,8+49*it->Position,57*(it->TableNum*2-1),5,true);
+		else
+			GameImages->Draw(MainForm->Canvas,8+49*it->Position,57*(it->TableNum*2-1),0,true);
+	}
+
+	if (MainBarman.HaveBeer)
+		GameImages->Draw(MainForm->Canvas,8+49*(TABLE_LENGTH+1),57*(MainBarman.TableNum*2-1),3,true);
+	else
+		GameImages->Draw(MainForm->Canvas,8+49*(TABLE_LENGTH+1),57*(MainBarman.TableNum*2-1),2,true);
+
+	std::list<Jar>::iterator jit;
+
+	for (jit = Jars.begin(); jit != Jars.end(); jit++)
+	{
+		if (jit->Reverse)
+			GameImages->Draw(MainForm->Canvas,8+49*jit->Position,57*(jit->TableNum*2-1),4,false);
+		else
+        	GameImages->Draw(MainForm->Canvas,8+49*jit->Position,57*(jit->TableNum*2-1),4,true);
+	}
+}
+
+void TMainForm::UpdateGamePoints(int Sum)
+{
+	int GP = StrToInt(GamePoints->Caption);
+	GP += Sum;
+	GamePoints->Caption = IntToStr(GP);
+}
+//---------------------------------------------------------------------------
+void __fastcall TMainForm::PlayButtonClick(TObject *Sender)
+{
+	GameImages->Draw(MainForm->Canvas,8,57,0,true);
+	GameImages->Draw(MainForm->Canvas,8,171,0,true);
+	GameImages->Draw(MainForm->Canvas,8,285,0,true);
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+void __fastcall TMainForm::Timer1Timer(TObject *Sender)
+{
+	DrawGameObjects();
+}
+//---------------------------------------------------------------------------
+

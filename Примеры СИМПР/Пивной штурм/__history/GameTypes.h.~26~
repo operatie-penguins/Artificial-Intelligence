@@ -1,0 +1,58 @@
+//---------------------------------------------------------------------------
+
+#ifndef GameTypesH
+#define GameTypesH
+
+#include <Windows.h>
+
+#define VISIT_CHANCE 50	//вероятность появления нового посетителя
+#define TABLE_LENGTH 2  //длина барной стойки
+#define DRINK_TIME 1    //сколько ходов посетитель пьёт пиво?
+#define WRANGLE_TIME 1  //сколько ходов посетитель ругается?
+
+#define CLEANING_TIME 2 //кол-во ходов для уборки бармена
+#define FILLING_TIME 1	//кол-во ходов для наливания пива
+
+//игровые структуры
+typedef struct
+{
+        int TableNum;           //номер стойки, за которой стоит посетитель
+        int Position;           //текущая позиция за стойкой
+        bool HasJar;            //есть ли у него в руках кружка?
+        bool Drinking;          //пьёт?
+        int DrinkTime;          //сколько времени пьёт?
+        bool AlreadyDrink;      //уже пил?
+        bool Wrangle;           //ругается?
+        int WrangleTime;        //сколько времени ругается?
+        bool ToLongWrangle;     //очень долго ругается?
+        bool AlreadyTurn;       //посетитель сделал ход?
+} Visitor;
+
+typedef struct
+{
+	int TableNum;		   	//номер стойки, за которой стоит бармен
+	bool HaveBeer;			//есть ли в руках кружка?
+	bool isCleaning;        //бармен убирается?
+	int CleaningTime;		//время уборки
+	bool CleaningJar;		//протирает кружку?
+	bool FillingJar;		//наполняет кружку?
+	int FillingTime;		//сколько времени наполняет кружку
+	bool AlreadyTurn;       //бармен сделал ход?
+} Barman;
+
+typedef struct
+{
+	int TableNum;			//номер стойки с летящей кружкой
+	int Position;			//положение кружки
+	bool Reverse;			//кружка летит назад к бармену?
+} Jar;
+
+//процедуры обработки посетителей
+Visitor*        CreateNewVisitor(int TableNum);
+Jar*			CreateNewJar(int TableNum, int Position = TABLE_LENGTH, bool Reverse = false);
+void            SetVisitorDrinkingState(Visitor *Vis);
+void            SetVisitorWrangleState(Visitor *Vis);
+void            UpdateVisitor(Visitor *Vis);
+
+#endif
+ 

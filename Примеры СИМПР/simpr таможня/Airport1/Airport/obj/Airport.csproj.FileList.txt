@@ -1,0 +1,8 @@
+obj\Debug\Airport.exe
+obj\Debug\Airport.pdb
+bin\Debug\Airport.exe
+bin\Debug\Airport.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Airport.Form1.resources
+obj\Debug\Airport.Properties.Resources.resources
+obj\Debug\Airport.csproj.GenerateResource.Cache

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2009.02.28 16:47:11.296.cpp,C:\Users\Админ\Documents\RAD Studio\Projects\Unit2.cpp=D:\8 семестр\Еремеев\Арканоид\src\ufmMain.cpp</Transaction>
+    <Transaction>2009.02.28 16:47:11.296.h,C:\Users\Админ\Documents\RAD Studio\Projects\Unit2.h=D:\8 семестр\Еремеев\Арканоид\src\ufmMain.h</Transaction>
+    <Transaction>2009.02.28 16:47:11.296.dfm,C:\Users\Админ\Documents\RAD Studio\Projects\Unit2.dfm=D:\8 семестр\Еремеев\Арканоид\src\ufmMain.dfm</Transaction>
+    <Transaction>2009.02.28 16:47:17.378.cbproj,C:\Users\Админ\Documents\RAD Studio\Projects\Project2.cbproj=D:\8 семестр\Еремеев\Арканоид\src\Ark.cbproj</Transaction>
+    <Transaction>2009.02.28 16:48:55.112.cpp,D:\8 семестр\Еремеев\Арканоид\src\Unit1.cpp=D:\8 семестр\Еремеев\Арканоид\src\arkcl.cpp</Transaction>
+    <Transaction>2009.02.28 16:48:55.112.h,D:\8 семестр\Еремеев\Арканоид\src\Unit1.h=D:\8 семестр\Еремеев\Арканоид\src\arkcl.h</Transaction>
+    <Transaction>2009.03.01 10:49:54.670.cpp,D:\8 семестр\Еремеев\Арканоид\src\arkcl.cpp=D:\8 семестр\Еремеев\Арканоид\src\arkcl2.cpp</Transaction>
+    <Transaction>2009.03.01 10:49:54.670.h,D:\8 семестр\Еремеев\Арканоид\src\arkcl.h=D:\8 семестр\Еремеев\Арканоид\src\arkcl2.h</Transaction>
+    <Transaction>2009.03.01 10:49:54.688.cpp,D:\8 семестр\Еремеев\Арканоид\src\arkcl2.cpp=D:\8 семестр\Еремеев\Арканоид\src\arkcl.cpp</Transaction>
+    <Transaction>2009.03.01 10:49:54.688.h,D:\8 семестр\Еремеев\Арканоид\src\arkcl2.h=D:\8 семестр\Еремеев\Арканоид\src\arkcl.h</Transaction>
+    <Transaction>2009.03.04 09:01:48.942.h,D:\8 семестр\Еремеев\Арканоид\src\File1.h=C:\Users\Админ\Desktop\WinProc.h</Transaction>
+    <Transaction>2009.03.04 09:13:31.906.h,C:\Users\Админ\Desktop\WinProc.h=</Transaction>
+  </Transactions>
+</BorlandProject>

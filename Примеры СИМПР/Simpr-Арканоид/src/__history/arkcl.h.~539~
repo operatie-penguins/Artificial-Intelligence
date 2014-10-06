@@ -1,0 +1,1002 @@
+//---------------------------------------------------------------------------
+#include <vcl.h>
+#include <math.h>
+//---------------------------------------------------------------------------
+#ifndef arkclH
+#define arkclH
+//---------------------------------------------------------------------------
+
+const TColor cTransparentColor = 0xFFFFFF;
+
+const cnBitmapsCount = 16;
+
+const cnBonusRate = 10;
+
+const cnBonusSpeed = 3;
+
+const cnBonusTypes = 1;
+
+const cnInitialBoardSize = 50;
+
+const cnTraceLength = 50;
+
+const cnBallRadius = 5;
+
+const cnBW = 40;
+
+const cnBH = 10;
+
+const cnBaseVSpeed = -1;
+
+const cnBaseHSpeed = 1;
+
+const cnHeight = 600;
+
+const cnWidth = 400;
+
+const cnBoardStart = cnHeight - 10;
+
+const AnsiString cstrLevelPath = "Level.txt";
+
+const cnBricksMax = 100;
+
+const cnXCenter = (cnWidth - cnInitialBoardSize) >> 1;
+
+const cnBaseLifes = 5;
+
+const cnBonusSize = 20;
+
+const cnBaseMaxBoardSpeed = 20;
+
+const cnBoardSpeed = 2;
+
+const cnMaxRad = 40;
+
+const double cdAcc = 1.00007;
+
+const cnVSeed = 1000;
+//---------------------------------------------------------------------------
+
+// Нумерация классов
+enum BitmapsPos
+{
+	// Поле
+	enField = 0,
+	// Для шариков
+	enNormBall,
+	enBallTrace,
+	enAcidBall,
+	// Типы кирпичей
+	enBrick1,
+	enBrick2,
+	enBrick3,
+	enBrick4,
+	enBrick5,
+	enInstantBrick,
+	// Для доски
+	enBoard,
+	enGuns,
+	enBullet,
+	// Бонусы
+	enBless,
+	enCurse,
+	// Далее бонусы
+	enSpeed,
+
+};
+
+//---------------------------------------------------------------------------
+
+// Пути к битмапам
+const AnsiString cstrBitmapPath[cnBitmapsCount] =
+{
+	"Field.bmp",
+	"NormBall.bmp",
+	"BallTrace.bmp",
+	"AcidBall.bmp",
+	"Brick1.bmp",
+	"Brick2.bmp",
+	"Brick3.bmp",
+	"Brick4.bmp",
+	"Brick5.bmp",
+	"InstantBrick.bmp",
+	"Board.bmp",
+	"Guns.bmp",
+	"Bullet.bmp",
+	"Bless.bmp",
+	"Curse.bmp",
+	"Speed.bmp",
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Utils */
+
+class Utils
+{
+	public:
+
+		static AnsiString getPath()
+		{
+			return ExtractFilePath(Application->ExeName);
+		}
+
+		static void init()
+		{
+      Randomize();
+    }
+
+		static int genBonus()
+		{
+			int nRandom = Random(cnBonusRate);
+			if(nRandom == cnBonusRate - 1)
+			{
+				return 1;
+			}
+			else
+			{
+				if(nRandom == cnBonusRate - 2)
+				{
+					return 0;
+				}
+			}
+			return -1 - enBless;
+		}
+
+		static int genBonusType()
+		{
+      return Random(cnBonusTypes);
+    }
+};
+
+//---------------------------------------------------------------------------
+
+
+/* singleton pattern */
+
+template <class T> class Singletone
+{
+	public:
+
+		static T* getSingle()
+		{
+			static T pSingle;
+			return &pSingle;
+		}
+
+		static T* getSingle(int anX, int anY)
+		{
+			static T pSingle(anX, anY);
+			return &pSingle;
+    }
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Simple storage */
+
+template <class T> class Storage
+{
+	public:
+
+		Storage()
+		{
+			mpList = new TList();
+		}
+
+		void add(T* aT)
+		{
+			mpList->Add(aT);
+		}
+
+		T* get(int anPos)
+		{
+      return reinterpret_cast<T*>(mpList->Items[anPos]);
+		}
+
+		void del(int anPos)
+		{
+			if(anPos < mpList->Count)
+				mpList->Delete(anPos);
+		}
+
+		int size()
+		{
+      return mpList->Count;
+    }
+
+	private:
+
+		TList* mpList;
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Bitmap storage */
+
+class BStorage : public Singletone<BStorage>
+{
+	public:
+
+		Graphics::TBitmap* getFrame()
+		{
+			Graphics::TBitmap* pBitmap = new Graphics::TBitmap();
+			pBitmap->LoadFromFile(Utils::getPath() + cstrBitmapPath[enField]);
+			return pBitmap;
+		}
+
+		static Graphics::TBitmap* getBitmap(int anPos)
+		{
+			return getSingle()->getBitmapA(anPos);
+    }
+
+	//protected:
+
+		Graphics::TBitmap* getBitmapA(int anPos)
+		{
+			if( (anPos >= 0) && (anPos < mpBitmaps->Count) )
+				return reinterpret_cast<Graphics::TBitmap*>(mpBitmaps->Items[anPos]);
+			return NULL;
+		}
+
+		BStorage()
+		{
+			mpBitmaps = new TList();
+			for(int i = 0; i < cnBitmapsCount; i++)
+			{
+				Graphics::TBitmap* pBitmap = new Graphics::TBitmap();
+				pBitmap->LoadFromFile(Utils::getPath() + cstrBitmapPath[i]);
+				pBitmap->Transparent = true;
+				pBitmap->TransparentColor = cTransparentColor;
+				pBitmap->TransparentMode = tmFixed;
+
+				mpBitmaps->Add(pBitmap);
+			}
+		}
+
+		TList* mpBitmaps;
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Posing strategy */
+
+class PosCord
+{
+	public:
+
+		PosCord(double adX, double adY)
+		{
+			mdYPos = adY;
+			mdXPos = adX;
+		}
+
+		PosCord() {}
+
+		int getXPos()
+		{
+			return mdXPos;
+		}
+
+		int getYPos()
+		{
+			return mdYPos;
+		}
+
+		void setXPos(int adXPos)
+		{
+			mdXPos = adXPos;
+		}
+
+		void setYPos(double adYPos)
+		{
+			mdYPos = adYPos;
+		}
+
+	protected:
+
+		double mdXPos;
+
+		double mdYPos;
+
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Drawable object strategy */
+
+class Drawable : public PosCord
+{
+	public:
+
+		Drawable(int anBitmapNum, int anX, int anY)
+		: PosCord(anX, anY)
+		{
+			mnBitmapNum = anBitmapNum;
+	  }
+
+		virtual void draw(Graphics::TBitmap* apBitmap)
+		{
+			if(mnBitmapNum >= -1)
+			{
+				apBitmap->Canvas->Draw(mdXPos,
+														 mdYPos,
+														 BStorage::getSingle()->getBitmap(mnBitmapNum));
+
+			}
+		}
+
+		int mnBitmapNum;
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Brick class */
+
+class Brick : public Drawable
+{
+	public:
+
+		Brick(int anType, int anBonusType, int anX, int anY)
+		: Drawable(anType + enBrick1, anX, anY)
+		{
+			mnType = anType;
+			mnBonusType = anBonusType;
+			mfBonus = (anBonusType >= 0);
+			if(mnBonusType + 1)
+				mpBonus = new Drawable(anBonusType + enBless, anX, anY);
+		}
+
+		int mnType;
+
+		void drawBonus(Graphics::TBitmap* apBitmap)
+		{
+			if(mnBonusType + 1)
+        mpBonus->draw(apBitmap);
+		}
+
+		bool mfBonus;
+
+	  int mnBonusType;
+
+		Drawable* mpBonus;
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Falling bonus */
+
+class Bonus : public Drawable
+{
+	public:
+
+		Bonus(int anType, int anX, int anY)
+		: Drawable(anType + enSpeed, anX, anY)
+		{
+
+		}
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Board */
+
+class Board : public Singletone<Board>,
+							public PosCord
+{
+	public:
+
+		void draw(Graphics::TBitmap* apBitmap)
+		{
+			Graphics::TBitmap* mpBitmap = BStorage::getBitmap(enBoard);
+			apBitmap->Canvas->StretchDraw( TRect( TPoint(mdXPos, mdYPos),
+																						TPoint(mdXPos + mnSize,
+																									 mdYPos + mpBitmap->Height) ),
+																		 mpBitmap);
+		}
+
+		void move()
+		{
+			if( (mdXPos + mnSpeed - mnSize >=  cnWidth) )
+			{
+				mdXPos = cnWidth - mnSize;
+				return;
+			}
+			if(mdXPos + mnSpeed <= 0)
+			{
+				mdXPos = 0;
+				return;
+			}
+			mdXPos += mnSpeed;
+			mnLastSpeed = mnSpeed;
+		}
+
+		int getAcceleration()
+		{
+			int S = -1;
+			if(mnSpeed > 0)
+			{
+				S = 1;
+      }
+			return S;
+    }
+
+		int mnSize;
+		int mnSpeed;
+		int mnLastSpeed;
+		int mnMaxSpeed;
+
+};
+
+//---------------------------------------------------------------------------
+
+
+/* Ball trace */
+
+class TraceElem : public Drawable
+{
+	public:
+
+		TraceElem(int anX, int anY)
+		: Drawable(enBallTrace, anX, anY)
+		{
+
+		}
+
+		virtual void draw(Graphics::TBitmap* apBitmap)
+		{
+
+    }
+
+		void draw(Graphics::TBitmap* apBitmap, int anNum)
+		{
+			int nX = mdXPos + cnBallRadius;
+			int nY = mdYPos + cnBallRadius;
+
+			// First type
+			TCanvas* pR = apBitmap->Canvas;
+			int nO = 3;
+			pR->Pen->Color = TColor(0xFF00FF + 0x100 * nO * anNum);
+			int nS = (anNum / 10 + 1);
+			pR->MoveTo(nX - nS, nY);
+			pR->LineTo(nX + nS, nY);
+			pR->MoveTo(nX,     nY - nS);
+			pR->LineTo(nX,     nY + nS);
+
+			// Second type
+			/*if(anNum % 10 == 0)
+			{
+				apBitmap->Canvas->Draw(mdXPos, mdYPos, BStorage::getBitmap(enNormBall));
+			}
+			*/
+		}
+};
+
+class Trace
+{
+	public:
+
+		Trace()
+		{
+			pElems = new Storage<TraceElem>;
+			mnCol = 0;
+    }
+
+		void process(PosCord* apPos)
+		{
+			TraceElem* pNewElem = new TraceElem(apPos->getXPos(), apPos->getYPos());
+			if(mnCol >= cnTraceLength)
+			{
+				pElems->del(0);
+				mnCol--;
+			}
+			pElems->add(pNewElem);
+			mnCol++;
+		}
+
+		void draw(Graphics::TBitmap* apBitmap)
+		{
+			for(int i = 0; i < pElems->size(); i++)
+			{
+        pElems->get(i)->draw(apBitmap, i);
+      }
+    }
+
+	private:
+
+		int mnCol;
+
+		Storage<TraceElem>* pElems;
+};
+//---------------------------------------------------------------------------
+
+
+/*
+	 All bricks are hear!!
+	 In this trully nice big class
+*/
+
+typedef Singletone< Storage<Brick> > BrickStorage;
+
+//---------------------------------------------------------------------------
+
+
+/*
+	 All bonuses are hear!!
+	 In this trully nice big class
+*/
+
+typedef Singletone< Storage<Bonus> > BonusStorage;
+
+//---------------------------------------------------------------------------
+
+
+/* The Ball */
+
+class Ball : public Singletone<Ball>,
+						 public Drawable
+{
+	public:
+
+		Ball(int anX, int anY)
+		: Drawable(enNormBall, anX, anY)
+		{
+			int mnVSpeed = 0;
+			int mnYSpeed = 0;
+			int mfAcid = false;
+
+			mpTrace = new Trace();
+		}
+
+		Ball()
+		: Drawable(enNormBall, 0, 0)
+		{
+			mnVSpeed = 0;
+			mnHSpeed = 0;
+			mnAcid = false;
+
+			mfBoardImpacted = false;
+			mnBrickImpacted = -1;
+
+			mpTrace = new Trace();
+    }
+
+		double mnVSpeed;
+		double mnHSpeed;
+		int mnAcid;
+
+		void acid(int anAcid)
+		{
+			mnAcid = anAcid;
+			mnBitmapNum = enNormBall + mnAcid;
+    }
+
+		void drawTrace(Graphics::TBitmap* apBitmap)
+		{
+			mpTrace->draw(apBitmap);
+		}
+
+		void move()
+		{
+			mpTrace->process(this);
+
+			mdXPos += mnHSpeed;
+			mdYPos += mnVSpeed;
+			mnHSpeed *= cdAcc;
+			mnVSpeed *= cdAcc;
+		}
+
+		void baseSpeed()
+		{
+			mnVSpeed = cnBaseVSpeed;
+			mnHSpeed = cnBaseHSpeed;
+    }
+
+		int BrickImpact()
+		{
+			int nCX = mdXPos + cnBallRadius;
+			int nCY = mdYPos + cnBallRadius;
+
+			for(int i = 0; i < BrickStorage::getSingle()->size(); i++)
+			{
+				Brick* pBrick = BrickStorage::getSingle()->get(i);
+				if( (nCX + cnBallRadius >= pBrick->getXPos() - 1) &&
+						(nCX - cnBallRadius <= pBrick->getXPos() + cnBW + 1) &&
+						(nCY + cnBallRadius >= pBrick->getYPos() - 1) &&
+						(nCY - cnBallRadius <= pBrick->getYPos() + cnBH + 1) )
+				{
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		bool BoardImpact()
+		{
+			int nCX = mdXPos + cnBallRadius;
+			int nCY = mdYPos + cnBallRadius * 2;
+
+			int Size = Board::getSingle()->mnSize;
+			int Pos = Board::getSingle()->getXPos();
+
+			bool fR = (mdXPos >= Pos) && (nCX + cnBallRadius <= Pos + Size) &&
+			          (nCY >= cnBoardStart - 1);
+
+			return fR;
+		}
+
+		bool FloorImpact()
+		{
+			return (mdYPos + 2 * cnBallRadius >= cnHeight);
+		}
+
+		double getSpeed()
+		{
+      return Sqrt(mnHSpeed * mnHSpeed + mnVSpeed * mnVSpeed);
+		}
+
+ //	private:
+
+		Trace* mpTrace;
+
+		bool mfBoardImpacted;
+
+		int mnBrickImpacted;
+
+};
+
+//---------------------------------------------------------------------------
+
+
+class Effect
+{
+	public:
+
+		Effect(int anX,
+					 int anY,
+					 int anR,
+					 TColor aColor)
+		{
+			mnX = anX;
+			mnY = anY;
+			mnR = anR;
+      mColor = aColor;
+    }
+
+	int mnX;
+	int mnY;
+	int mnR;
+	TColor mColor;
+};
+//---------------------------------------------------------------------------
+
+/* Engine - frame generation */
+
+class Engine : public Singletone<Engine>
+{
+
+	public:
+
+		void setDraw(TPaintBox* apDraw)
+		{
+			mpDraw = apDraw;
+		}
+
+		void draw()
+		{
+			// Заготовка кадра
+			Graphics::TBitmap* pFrame = BStorage::getSingle()->getFrame();
+
+			// Рисуем кирпичи
+			for(int i = 0; i < BrickStorage::getSingle()->size(); i++)
+			{
+				BrickStorage::getSingle()->get(i)->draw(pFrame);
+			}
+
+			// Рисуем бонусы
+			//for(int i = 0; i < BonusStorage::getSingle()->size(); i++)
+			//	BonusStorage::getSingle()->get(i)->draw(pFrame);
+
+		 	//Ball::getSingle()->drawTrace(pFrame);
+
+			Ball::getSingle()->draw(pFrame);
+
+			Board::getSingle()->draw(pFrame);
+
+			// Рисуем эффекты
+			for(int i = 0; i < mStorage.size(); i++)
+			{
+				Effect& ef = *mStorage.get(i);
+				ef.mnR += 1;
+				drawParticleEffect(ef.mnX,
+													 ef.mnY,
+													 ef.mnR,
+													 ef.mnR + 20,
+													 30,
+													 ef.mColor,
+													 pFrame->Canvas);
+				if(ef.mnR > cnMaxRad)
+				{
+          mStorage.del(i);
+        }
+      }
+
+			mpDraw->Canvas->Draw(0, 0, pFrame);
+			delete pFrame;
+		}
+
+		void drawParticleEffect(int anX,
+														int anY,
+														int anIR, /* inner radius */
+														int anOR, /* outer radius */
+														int anN, /* amount */
+														TColor aColor,
+														TCanvas* apC)
+		{
+      apC->Pen->Color = aColor;
+			for(int i = 0; i < anN; i++)
+			{
+				int nL = Random(anOR - anIR) + anIR;
+				int nf = Random(360);
+				int X = nL * sin(double(nf));
+				int Y = nL * cos(double(nf));
+				apC->MoveTo(anX + X - 1, anY + Y);
+				apC->LineTo(anX + X + 2, anY + Y);
+				apC->MoveTo(anX + X, anY + Y - 1);
+				apC->LineTo(anX + X, anY + Y + 2);
+			}
+		}
+
+		void addEffect(int anX,
+									 int anY,
+									 int anR,
+									 TColor aColor)
+		{
+      mStorage.add(new Effect(anX, anY, anR, aColor));
+    }
+
+	private:
+
+		TPaintBox* mpDraw;
+
+		Storage<Effect> mStorage;
+};
+
+//Engine::mpSingle = 0;
+
+//---------------------------------------------------------------------------
+
+
+/* main class */
+
+class Situation
+{
+	public:
+
+		Situation(TPaintBox* pBox)
+		{
+			Engine::getSingle()->setDraw(pBox);
+			Utils::init();
+			loadLevel();
+			mnLifes = cnBaseLifes;
+			mnTWOI = 0;
+			Board::getSingle()->mnMaxSpeed = cnBaseMaxBoardSpeed;
+			mfPlay = true;
+			mfFirstMove = true;
+			mnFreeTurns = 0;
+			mfFirstBoard = true;
+		}
+
+		void loadLevel();
+
+		void baseSpeed();
+
+		void turn();
+
+		bool zeroLifes()
+		{
+      return ( mnLifes == 0 );
+		}
+
+		int floorBonus();
+
+		bool isFloorBonus()
+		{
+			bool fFloorBonus = floorBonus() + 1;
+			return fFloorBonus;
+		}
+
+		int boardBonus();
+
+		bool isBoardBonus()
+		{
+			bool fBoardBonus = boardBonus() + 1;
+			return fBoardBonus;
+		}
+
+		bool isBrickImpact()
+		{
+			bool fImpact = (Ball::getSingle()->BrickImpact() + 1 > 0);
+			return fImpact;
+		}
+
+		bool isBrickBonus()
+		{
+			Brick* pBrick = BrickStorage::getSingle()->get(
+															Ball::getSingle()->BrickImpact());
+			return pBrick->mfBonus;
+		}
+
+		bool isSimpleBrick()
+    {
+			Brick* pBrick = BrickStorage::getSingle()->get(
+															Ball::getSingle()->BrickImpact());
+			return (pBrick->mnType == 0);
+		}
+
+		bool isInstantBrick()
+    {
+			Brick* pBrick = BrickStorage::getSingle()->get(
+															Ball::getSingle()->BrickImpact());
+			return (pBrick->mnType == 5);
+		}
+
+		bool isAcidBall()
+		{
+      return Ball::getSingle()->mnAcid;
+		}
+
+		bool isLess25()
+		{
+      return (mnSBA / BrickStorage::getSingle()->size() >= 4);
+		}
+
+		bool is4NoImpact()
+		{
+      return mnTWOI > 3;
+		}
+
+		int getBottom();
+
+		int getArrival()
+		{
+			int nSpeed = Ball::getSingle()->getSpeed();
+			int nBottom = getBottom();
+
+			if(!nSpeed)
+			{
+        return 0;
+      }
+
+			return ( (cnBoardStart - nBottom +
+			          Ball::getSingle()->getYPos() - nBottom) / nSpeed );
+		}
+
+		int getBonusTurns();
+
+		int getBallPosCord()
+		{
+			int nBC = Ball::getSingle()->getXPos();
+			int nBLP = Board::getSingle()->getXPos();
+			int nBRP = nBLP + Board::getSingle()->mnSize;
+
+			if(nBRP < nBC)
+			{
+				return -1;
+			}
+			if(nBLP > nBC + cnBallRadius * 2)
+			{
+				return 1;
+			}
+			return 0;
+		}
+
+		PosCord* genStrikeSpeed(int anCenterShift);
+
+		int genUsefulStrike();
+
+		void randomDemolution()
+		{
+      BrickStorage::getSingle()->del(Random(BrickStorage::getSingle()->size()));
+		}
+
+		int getCenterShift()
+		{
+			return ( Board::getSingle()->getXPos() + Board::getSingle()->mnSize -
+							( Ball::getSingle()->getXPos() + cnBallRadius ) );
+		}
+
+		void moveBonus()
+		{
+			for(int i = 0; i < BonusStorage::getSingle()->size(); i++)
+			{
+				BonusStorage::getSingle()->get(i)->setYPos(
+				BonusStorage::getSingle()->get(i)->getYPos() + cnBonusSpeed);
+      }
+    }
+
+		bool hitTopBottom()
+		{
+			Brick* pBrick = BrickStorage::getSingle()->get(
+															Ball::getSingle()->BrickImpact());
+			return ( (Ball::getSingle()->getYPos() + cnBallRadius * 2 <= pBrick->getYPos() - 1) ||
+							 (Ball::getSingle()->getYPos() + 1 >= pBrick->getYPos() + cnBH) );
+		}
+
+		bool canCountFinalPos()
+		{
+			mnFinalPos = -1;
+			if(Ball::getSingle()->mnVSpeed <= 0)
+				return false;
+			if(getBottom() > Ball::getSingle()->getYPos())
+				return false;
+
+			mnFinalPos = Ball::getSingle()->getXPos() + cnBallRadius;
+
+			int dYPos = Ball::getSingle()->getYPos() + cnBallRadius * 2;
+
+			int nXS = Ball::getSingle()->mnHSpeed;
+
+			while(dYPos < cnBoardStart)
+			{
+				dYPos += Ball::getSingle()->mnVSpeed;
+				mnFinalPos += nXS;
+				if( (mnFinalPos + cnBallRadius * 2 > cnWidth - 1) ||
+						(mnFinalPos < 1) )
+				{
+          nXS = nXS * -1;
+        }
+      }
+      return true;
+    }
+
+		void randomSpeedViolation()
+		{
+			double dS = Ball::getSingle()->getSpeed();
+			double dV = (double)Random(cnVSeed) / (double)(cnVSeed * 1.5);
+
+			double n = 1;
+			if(Ball::getSingle()->mnHSpeed < 0) n = -1;
+			Ball::getSingle()->mnHSpeed = dS * dV * n;
+
+			n = 1;
+			if(Ball::getSingle()->mnVSpeed < 0) n = -1;
+			Ball::getSingle()->mnVSpeed = dS * sqrt(1 - dV * dV) * n;
+    }
+
+		//------------------------------------------
+		// Data
+
+		bool mfPlay;
+
+		bool mfFirstMove;
+
+
+		int mnLifes;
+
+		// Start bricks amount
+		int mnSBA;
+
+		// Turn w/o impact
+		int mnTWOI;
+
+		int mnNeeded;
+
+		int mnScore;
+
+		int mnFinalPos;
+
+		int mnFreeTurns;
+
+		bool mfFirstBoard;
+};
+//---------------------------------------------------------------------------
+#endif

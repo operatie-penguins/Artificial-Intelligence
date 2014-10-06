@@ -1,0 +1,24 @@
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\Airport.Properties.Resources.resources
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\Airport.csproj.GenerateResource.Cache
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\bin\Debug\Airport.exe
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\bin\Debug\Airport.pdb
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\Airport.exe
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\Airport.pdb
+C:\Documents and Settings\freest\Мои документы\Visual Studio 2005\Projects\Airport\Airport\obj\Debug\Airport.Form1.resources
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\Airport.exe
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\Airport.pdb
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\bin\Debug\Airport.exe
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\bin\Debug\Airport.pdb
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\Airport.Form1.resources
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\Airport.Properties.Resources.resources
+C:\Documents and Settings\freest\Рабочий стол\Airport1\Airport\obj\Debug\Airport.csproj.GenerateResource.Cache
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\Airport.exe
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\Airport.pdb
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\bin\Debug\Airport.exe
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\bin\Debug\Airport.pdb
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\Airport.Form1.resources
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\Airport.Properties.Resources.resources
+C:\Documents and Settings\tmp\Desktop\Airport2\Airport1\Airport\obj\Debug\Airport.csproj.GenerateResource.Cache

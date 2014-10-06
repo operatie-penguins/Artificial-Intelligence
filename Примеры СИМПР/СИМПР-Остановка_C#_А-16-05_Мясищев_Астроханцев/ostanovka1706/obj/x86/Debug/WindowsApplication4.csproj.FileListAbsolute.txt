@@ -1,0 +1,7 @@
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\bin\x86\Debug\WindowsApplication4.exe
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\bin\x86\Debug\WindowsApplication4.pdb
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\obj\x86\Debug\WindowsApplication4.Form1.resources
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\obj\x86\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\obj\x86\Debug\WindowsApplication4.exe
+C:\Users\sirius\Desktop\TI&IO\2008\СИМПР-Остановка_C#_А-16-05_Мясищев_Астроханцев\ostanovka1706\obj\x86\Debug\WindowsApplication4.pdb

@@ -1,0 +1,152 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D77FC586-6870-4DF8-B5DA-6A64DBA422EA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Box</RootNamespace>
+    <AssemblyName>Box</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="simpr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\back.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\backr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\backw.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\fon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\left.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\leftw.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\red.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\red1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\red2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\red3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\red4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\right.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\rightr.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\white.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\white1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\white2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\white3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\white4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\gor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\gow.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

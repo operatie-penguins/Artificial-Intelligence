@@ -1,0 +1,8 @@
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\simpr1.Properties.Resources.resources
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\simpr1.csproj.GenerateResource.Cache
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\bin\Debug\simpr1.exe
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\bin\Debug\simpr1.pdb
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\simpr1.exe
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\simpr1.pdb
+C:\Users\ASUS\Documents\МЭИ\ТИ\simpr1\simpr1\obj\Debug\simpr1.Form1.resources

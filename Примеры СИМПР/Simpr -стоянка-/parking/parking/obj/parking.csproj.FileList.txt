@@ -1,0 +1,16 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\parking.Properties.Resources.resources
+obj\Debug\parking.csproj.GenerateResource.Cache
+bin\Debug\parking.exe
+bin\Debug\parking.pdb
+obj\Debug\parking.exe
+obj\Debug\parking.pdb
+obj\Debug\parking.Form1.resources
+bin\Release\parking.exe
+bin\Release\parking.pdb
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\parking.Form1.resources
+obj\Release\parking.Properties.Resources.resources
+obj\Release\parking.csproj.GenerateResource.Cache
+obj\Release\parking.exe
+obj\Release\parking.pdb

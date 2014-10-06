@@ -1,0 +1,106 @@
+object ufmArk: TufmArk
+  Left = 0
+  Top = 0
+  Caption = 'Ark'
+  ClientHeight = 613
+  ClientWidth = 650
+  Color = clGray
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesigned
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PaintBox1: TPaintBox
+    Left = 8
+    Top = 8
+    Width = 400
+    Height = 600
+    Color = clWhite
+    ParentColor = False
+  end
+  object Lifes: TLabel
+    Left = 440
+    Top = 8
+    Width = 22
+    Height = 13
+    Caption = 'Lifes'
+  end
+  object Score: TLabel
+    Left = 520
+    Top = 8
+    Width = 27
+    Height = 13
+    Caption = 'Score'
+  end
+  object Shape1: TShape
+    Left = 6
+    Top = 6
+    Width = 404
+    Height = 604
+    Brush.Style = bsClear
+    Pen.Color = clRed
+    Pen.Width = 2
+  end
+  object Shape2: TShape
+    Left = 416
+    Top = 6
+    Width = 217
+    Height = 17
+    Brush.Style = bsClear
+    Pen.Color = clRed
+    Pen.Width = 2
+  end
+  object Shape3: TShape
+    Left = 416
+    Top = 27
+    Width = 217
+    Height = 583
+    Brush.Style = bsClear
+    Pen.Color = clRed
+    Pen.Width = 2
+  end
+  object Label1: TLabel
+    Left = 536
+    Top = 592
+    Width = 3
+    Height = 13
+  end
+  object Label2: TLabel
+    Left = 536
+    Top = 568
+    Width = 52
+    Height = 13
+    Caption = 'Ball speed:'
+  end
+  object Memo1: TMemo
+    Left = 432
+    Top = 32
+    Width = 185
+    Height = 530
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 0
+  end
+  object Start: TButton
+    Left = 432
+    Top = 591
+    Width = 75
+    Height = 17
+    Caption = 'Start'
+    TabOrder = 1
+    OnClick = StartClick
+  end
+  object Loging: TCheckBox
+    Left = 440
+    Top = 568
+    Width = 81
+    Height = 17
+    Caption = 'Loging'
+    TabOrder = 2
+  end
+end

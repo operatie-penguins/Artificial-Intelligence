@@ -1,0 +1,8 @@
+D:\A-16-06\бррр\Копия testprog\testprog\bin\Debug\testprog.exe
+D:\A-16-06\бррр\Копия testprog\testprog\bin\Debug\testprog.pdb
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\ResolveAssemblyReference.cache
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\testprog.Form1.resources
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\testprog.Properties.Resources.resources
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\testprog.csproj.GenerateResource.Cache
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\testprog.exe
+D:\A-16-06\бррр\Копия testprog\testprog\obj\Debug\testprog.pdb

@@ -1,0 +1,24 @@
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\bin\Debug\myProject.exe
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\bin\Debug\myProject.pdb
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\myProject.Properties.Resources.resources
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\myProject.csproj.GenerateResource.Cache
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\myProject.exe
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\myProject.pdb
+C:\Users\Даша\Desktop\Симпр\myProject\myProject\obj\Debug\myProject.Form1.resources
+G:\Симпр\myProject\myProject\obj\Debug\myProject.exe
+G:\Симпр\myProject\myProject\obj\Debug\myProject.pdb
+G:\Симпр\myProject\myProject\bin\Debug\myProject.exe
+G:\Симпр\myProject\myProject\bin\Debug\myProject.pdb
+G:\Симпр\myProject\myProject\obj\Debug\ResolveAssemblyReference.cache
+G:\Симпр\myProject\myProject\obj\Debug\myProject.Form1.resources
+G:\Симпр\myProject\myProject\obj\Debug\myProject.Properties.Resources.resources
+G:\Симпр\myProject\myProject\obj\Debug\myProject.csproj.GenerateResource.Cache
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\myProject.exe
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\myProject.pdb
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\bin\Debug\myProject.exe
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\bin\Debug\myProject.pdb
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\myProject.Form1.resources
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\myProject.Properties.Resources.resources
+C:\Users\Даша\Documents\(=И-н-с-т-и-т-у-т=)\IVкурс\VIIIсеместр\Теория Игр\Симпр\myProject\myProject\obj\Debug\myProject.csproj.GenerateResource.Cache

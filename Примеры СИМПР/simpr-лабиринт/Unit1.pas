@@ -1,0 +1,331 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Unit2, Grids, StdCtrls, Buttons;
+
+const
+  MESSAGE_STR = 'MyMessage';
+  No = 0;
+  Yes = 1;
+
+type
+  TForm1 = class(TForm)
+    DrawGrid1: TDrawGrid;
+    Memo1: TMemo;
+    procedure FormCreate(Sender: TObject);
+    procedure WndProc(var Message: TMessage);override;
+    procedure DrawGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
+      Rect: TRect; State: TGridDrawState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    msgSIMPR:UINT;
+  end;
+
+var
+  Form1: TForm1;
+  Lab: TLabyrinth;
+  k: Integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.DrawGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
+  Rect: TRect; State: TGridDrawState);
+var
+  i: Integer;
+begin
+  if Lab.LabMatrix[ARow,ACol] = 0 then
+  begin
+    DrawGrid1.Canvas.Brush.Color := clBlack;
+    DrawGrid1.Canvas.FillRect(Rect);
+  end;
+  if ((Lab.Man.GetX = ACol) and (Lab.Man.GetY = ARow)) then
+  begin
+    DrawGrid1.Canvas.Brush.Color := clGreen;
+    DrawGrid1.Canvas.FillRect(Rect);
+  end;
+  for i := 0 to Length(Lab.Coins) - 1 do
+    if ((Lab.Coins[i].GetX = ACol) and (Lab.Coins[i].GetY = ARow)) then
+    begin
+      DrawGrid1.Canvas.Brush.Color := clYellow;
+      DrawGrid1.Canvas.FillRect(Rect);
+    end;
+  for i := 0 to Length(Lab.Enemy) - 1 do
+    if ((Lab.Enemy[i].GetX = ACol) and (Lab.Enemy[i].GetY = ARow)) then
+    begin
+      DrawGrid1.Canvas.Brush.Color := clRed;
+      DrawGrid1.Canvas.FillRect(Rect);
+    end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  i, j: Integer;
+  R: TRect;
+begin
+  MsgSIMPR:=RegisterWindowMessage(MESSAGE_STR);
+  Lab := TLabyrinth.Create('lab.txt');
+  DrawGrid1.RowCount := Length(Lab.LabMatrix);
+  DrawGrid1.ColCount := Length(Lab.LabMatrix[0]);
+  k := 0;
+end;
+
+procedure TForm1.WndProc(var Message: TMessage);
+var
+  res:boolean;
+begin
+  if message.Msg=msgSIMPR then
+  begin
+    Res:=false;
+    if message.WParamHi=0 then
+    begin
+      case message.WParamLo of
+        1: //таблица 1
+        begin
+          Memo1.Lines.Add('Таблица 1');
+          case message.LParam of
+            1:
+            begin
+              if (Lab.IsForwardWay(Lab.Man)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 1 yes')
+              else
+                Memo1.Lines.Add('Условие 1 no');
+            end;
+            2:
+            begin
+              if (Lab.IsLeftWay(Lab.Man)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 2 yes')
+              else
+                Memo1.Lines.Add('Условие 2 no');
+            end;
+            3:
+            begin
+              if (Lab.IsRightWay(Lab.Man)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 3 yes')
+              else
+                Memo1.Lines.Add('Условие 3 no');
+            end;
+            4:
+            begin
+              if (Lab.IsEnenyOnWay(Lab.Man,Lab.Man.GetDirection)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 4 yes')
+              else
+                Memo1.Lines.Add('Условие 4 no');
+            end;
+            5:
+            begin
+              if (Lab.IsEnenyOnWay(Lab.Man,Lab.Man.LeftSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 5 yes')
+              else
+                Memo1.Lines.Add('Условие 5 no');
+            end;
+            6:
+            begin
+              if (Lab.IsEnenyOnWay(Lab.Man,Lab.Man.RightSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 6 yes')
+              else
+                Memo1.Lines.Add('Условие 6 no');
+            end;
+            7:
+            begin
+              if (Lab.IsCashOnWay(Lab.Man,Lab.Man.GetDirection)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 7 yes')
+              else
+                Memo1.Lines.Add('Условие 7 no');
+            end;
+            8:
+            begin
+              if (Lab.IsCashOnWay(Lab.Man,Lab.Man.LeftSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 8 yes')
+              else
+                Memo1.Lines.Add('Условие 8 no');
+            end;
+            9:
+            begin
+              if (Lab.IsCashOnWay(Lab.Man,Lab.Man.RightSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 9 yes')
+              else
+                Memo1.Lines.Add('Условие 9 no');
+            end;
+          end;
+        end;
+        2: //таблица 2
+        begin
+          Memo1.Lines.Add('Таблица 2');
+          case message.LParam of
+            1:
+            begin
+              if (Lab.IsForwardWay(Lab.Enemy[k])) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 1 yes')
+              else
+                Memo1.Lines.Add('Условие 1 no');
+            end;
+            2:
+            begin
+              if (Lab.IsLeftWay(Lab.Enemy[k])) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 2 yes')
+              else
+                Memo1.Lines.Add('Условие 2 no');
+            end;
+            3:
+            begin
+              if (Lab.IsRightWay(Lab.Enemy[k])) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 3 yes')
+              else
+                Memo1.Lines.Add('Условие 3 no');
+            end;
+            4:
+            begin
+              if (Lab.IsManOnWay(Lab.Enemy[k],Lab.Enemy[k].GetDirection)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 4 yes')
+              else
+                Memo1.Lines.Add('Условие 4 no');
+            end;
+            5:
+            begin
+              if (Lab.IsManOnWay(Lab.Enemy[k],Lab.Enemy[k].LeftSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 5 yes')
+              else
+                Memo1.Lines.Add('Условие 5 no');
+            end;
+            6:
+            begin
+              if (Lab.IsManOnWay(Lab.Enemy[k],Lab.Enemy[k].RightSide)) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 6 yes')
+              else
+                Memo1.Lines.Add('Условие 6 no');
+            end;
+          end;
+        end;
+        3:
+        begin
+          case message.LParam of
+            1: if (k = Length(Lab.Enemy) - 1) then
+               Res := true
+          end;
+        end;
+        4: //таблица 3
+        begin
+          DrawGrid1.Repaint;
+          Memo1.Lines.Add('Таблица 3');
+          case message.LParam of
+            1:
+            begin
+              if (Lab.IsManOnCoin) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 1 yes')
+              else
+                Memo1.Lines.Add('Условие 1 no');
+            end;
+            2:
+            begin
+              if (Lab.IsEnemyOnMan) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 2 yes')
+              else
+                Memo1.Lines.Add('Условие 2 no');
+            end;
+            3:
+            begin
+              if (Lab.AreThereCoins) then
+                Res := true;
+              if Res then
+                Memo1.Lines.Add('Условие 3 yes')
+              else
+                Memo1.Lines.Add('Условие 3 no');
+            end;
+           end;
+        end;
+      end;
+    end;
+
+    if message.WParamHi = 1 then
+    begin
+      case message.WParamLo of
+        1:
+        begin
+          //MessageDlg('Действие в таблице 1',mtInformation,[mbOk],0);
+          case message.LParam of
+            1: Lab.Man.Move;
+            2: Lab.TurnLeft(Lab.Man);
+            3: Lab.TurnRight(Lab.Man);
+            4: Lab.TurnBack(Lab.Man);
+            5: Lab.TurnRandomWay(Lab.Man);
+          end;
+        end;
+        2:
+        begin
+          case message.LParam of
+            1: Lab.Enemy[k].Move;
+            2: Lab.TurnLeft(Lab.Enemy[k]);
+            3: Lab.TurnRight(Lab.Enemy[k]);
+            4: Lab.TurnBack(Lab.Enemy[k]);
+            5: Lab.TurnRandomWay(Lab.Enemy[k]);
+          end;
+        end;
+        3:
+        begin
+          case message.LParam of
+            1: Inc(k);
+            2: k := 0;
+          end;
+        end;
+        4:
+        begin
+          case message.LParam of
+            1: Lab.TakeCoin;
+          end;
+        end;
+      end;
+      Res:=true;
+    end;
+
+    if res then
+      message.Result:=1
+    else
+      message.Result:=0;
+
+  end
+  else
+    inherited WndProc(Message);
+end;
+
+end.

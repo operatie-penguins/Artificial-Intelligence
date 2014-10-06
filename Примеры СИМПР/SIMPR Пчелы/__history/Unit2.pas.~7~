@@ -1,0 +1,27 @@
+unit Unit2;
+
+interface
+
+uses
+  ImgList;
+
+type
+  Bee = class
+    State: Integer; //(0 - в улее; 1 - летит к цветку; 2 - летит в улей; 3 - собирает пыльцу)
+    IsWithHoney: Boolean;
+    Flower: Integer; //номер цветка, 0 - не находится на цветке
+    X: Integer;
+    Y: Integer;
+    image: TImage;
+  end;
+
+  Flower = class
+    IsWithPollen: Boolean;
+    IsWithBee: Boolean;
+    X: Integer;
+    Y: Integer;
+  end;
+
+implementation
+
+end.

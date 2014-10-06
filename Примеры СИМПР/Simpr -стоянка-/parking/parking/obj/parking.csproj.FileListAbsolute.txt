@@ -1,0 +1,16 @@
+G:\Симпр\parking\parking\obj\Release\parking.exe
+G:\Симпр\parking\parking\obj\Release\parking.pdb
+G:\Симпр\parking\parking\bin\Release\parking.exe
+G:\Симпр\parking\parking\bin\Release\parking.pdb
+G:\Симпр\parking\parking\obj\Release\ResolveAssemblyReference.cache
+G:\Симпр\parking\parking\obj\Release\parking.Form1.resources
+G:\Симпр\parking\parking\obj\Release\parking.Properties.Resources.resources
+G:\Симпр\parking\parking\obj\Release\parking.csproj.GenerateResource.Cache
+G:\ТПР\Симпр\parking\parking\obj\Release\parking.exe
+G:\ТПР\Симпр\parking\parking\obj\Release\parking.pdb
+G:\ТПР\Симпр\parking\parking\bin\Release\parking.exe
+G:\ТПР\Симпр\parking\parking\bin\Release\parking.pdb
+G:\ТПР\Симпр\parking\parking\obj\Release\ResolveAssemblyReference.cache
+G:\ТПР\Симпр\parking\parking\obj\Release\parking.Form1.resources
+G:\ТПР\Симпр\parking\parking\obj\Release\parking.Properties.Resources.resources
+G:\ТПР\Симпр\parking\parking\obj\Release\parking.csproj.GenerateResource.Cache

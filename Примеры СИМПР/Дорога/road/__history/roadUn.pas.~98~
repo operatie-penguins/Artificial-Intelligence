@@ -1,0 +1,485 @@
+unit roadUn;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, ImgList;
+
+const
+  MESSAGE_STR='MyMessage';
+  No=0;
+  Yes=1;
+
+
+type
+  TForm1 = class(TForm)
+    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Button1: TButton;
+    Image4: TImage;
+    Image5: TImage;
+    Image6: TImage;
+    Image7: TImage;
+    Image8: TImage;
+    ImageList1: TImageList;
+
+    Procedure WNDProc ( var Message: Tmessage); override;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+  msgSIMPR: UINT;
+    { Public declarations }
+  end;
+
+//Тип главной машины
+Type TMainCar = record
+     snij : boolean; //Снижаем ли скорость
+     hod  : Integer; //При снижении скорости, прийдется пропускать ходы, так вот это счетчик!
+     urS  : Integer; //Уровень снижения 0 - не снижаем, 1 - пропускаем 1 из 2х, 2 - 2 из трех и т.д.
+     shagN: integer; //Номер шага на дороге
+                end;
+//Тип человек
+Type Tman = record
+     go : boolean;   //Идем или стоим
+     napr : integer; //направление, если -1 то идем вверх, если 1 то вниз
+     shag : integer;
+            end;
+//Тип одной из остальных машин
+Type TAnotherCar = record
+     Pict : TImage;  //изображение машины
+     Act  : boolean; //присутствует ли сейчас на дороге
+                    end;
+Type TAnotherCars = array [1..10] of TAnotherCar;
+var
+  Form1: TForm1;
+  car  : TMainCar;
+  cars : TAnotherCars;
+  man  : TMan;
+  beg  : boolean; //true - значит начало игры
+  kph  : String; //кто последний ходил
+  rnd  : Integer;
+  anC  : Integer; // сколько прошло шагов, с того момента как поставили машину
+  ColAct : Integer; //количество активных машин 
+implementation
+
+{$R *.dfm}
+//процедура задержки
+procedure Delay(msecs : Longint);
+var FirstTick : longint;
+begin FirstTick:=GetTickCount;
+repeat Application.ProcessMessages;
+until GetTickCount-FirstTick >= msecs;
+end;
+
+//Проверяем нет ли перед нами другой машины
+function bligcar( ii : Integer) : Integer;
+var i : Integer;
+    min : Integer;
+begin
+min := 80;
+for I := 1 to 10 do begin
+   if cars[i].Act then begin
+   if ((cars[ii].Pict.Left-cars[i].Pict.Left>=0)and
+       (cars[ii].Pict.Left-cars[i].Pict.Left<min)and
+        (cars[ii].Pict.Top=cars[i].Pict.Top)and (ii<>i))
+   then min := cars[ii].Pict.Left-cars[i].Pict.Left;
+                       end;
+                    end;
+bligcar := min;
+end;
+
+
+function peshmesh : boolean;
+begin
+peshmesh := false;
+if man.go then   begin
+   case man.napr of
+   -2: if man.shag > 62 then peshmesh := true;
+    2: if man.shag < 47 then peshmesh := true;
+   end;
+                 end;
+end;
+
+procedure CreateCars;
+var i : Integer;
+    rd : Integer;
+    Ost : Integer;
+begin
+randomize;
+for i := 1 to 10 do begin
+   cars[i].Pict := TImage.Create(form1);
+   cars[i].Pict.Parent := form1;
+   cars[i].Act := false;
+   cars[i].Pict.Transparent := true;
+   Rd := random (100);
+   ost := rd mod 2;
+   form1.ImageList1.GetBitmap(ost,cars[i].Pict.Picture.Bitmap);
+   cars[i].Pict.Visible := false;
+   cars[i].Pict.Width := 61;
+   cars[i].Pict.Height := 31;
+                       end;
+
+end;
+
+procedure Forw;
+var f : boolean;
+begin
+delay(60);
+car.shagN := car.shagN+1;
+f := true;
+       Form1.Image1.Left := Form1.Image1.Left+5;
+       Form1.Image2.Left := Form1.Image2.Left+5;
+       Form1.Image3.Left := Form1.Image3.Left+5;
+    if ((Form1.Image1.Visible)and(f)) then  begin
+       Form1.Image1.Visible := false;
+       Form1.Image2.Visible := true;
+       Form1.Image3.Visible := false;
+       f := false;
+                                      end;
+    if ((Form1.Image2.Visible)and(f)) then  begin
+       Form1.Image1.Visible := false;
+       Form1.Image2.Visible := false;
+       Form1.Image3.Visible := true;
+       f := false;
+                                      end;
+    if ((Form1.Image3.Visible)and(f)) then  begin
+       Form1.Image1.Visible := true;
+       Form1.Image2.Visible := false;
+       Form1.Image3.Visible := false;
+       f := false;
+                                            end;
+
+end;
+
+
+procedure ForwPesh;
+begin
+delay(40);
+form1.Image7.Top := form1.Image7.Top + man.napr;
+man.shag := man.shag+1;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var i : Integer;
+begin
+for I := 1 to 62 do begin
+delay(50);
+forw;
+                    end;
+
+for I := 1 to 47 do begin
+delay(50);
+forwpesh;
+                    end;
+
+end;
+
+
+procedure TForm1.WndProc (var Message : TMessage);
+var
+res: boolean;
+i : Integer;
+begin // of proc wnd
+res:= false;
+
+
+  If message.Msg=msgSIMPR then
+     begin   //2begin
+//------------------------------------------------------------------------------
+                                 //   Условия
+//------------------------------------------------------------------------------
+      If message.WParamHi=0 then
+       begin
+
+ case  message.WParamLo of               //Выбор таблиц условий
+
+//------------------------------Таблица № 1  Условия---------------------------
+    1: begin   // 1
+
+           case message.LParam of
+             1:  begin
+                 res := beg;
+                 end;
+
+             2:  begin
+                 if kph='car' then res := true;
+                 end;
+
+             3:  begin
+                 if kph='man' then res := true;
+                 end;
+
+             4:  begin
+                 if kph='Light' then res := true;
+                 end;
+
+             5:  begin
+                 if kph='anoth' then res := true;
+                 end;
+
+             6:  begin
+                 if car.shagN = 134 then res := true;
+                 end;
+
+             7:  begin
+                 if Image8.Left = 608 then  res := true;
+                 end;
+            end;   //case Таблица 1 (условия)
+
+       end;   //end таблицы 1 (условия)
+//
+//-------------(Условия)Таблица №2 ---------------------------------------------
+    2: begin   // 2
+
+           case message.LParam of    //c2
+               1:  begin
+                   if car.shagN<39 then res := true;
+                   end;
+
+               2:  begin
+                   if car.shagN=39 then res := true;
+                   end;
+
+               3:  begin
+                   if ((car.shagN>39)and(car.shagN<80)) then res := true;
+                   end;
+
+               4:  begin
+                   if car.shagN=80 then res := true;
+                   end;
+
+               5:  begin
+                   if car.shagN>80 then res := true;
+                   end;
+
+               6:  begin
+                   if Image6.Visible then res := true;
+                   end;
+
+               7:  begin
+                   if Image5.Visible then res := true;
+                   end;
+
+               8:  begin
+                   case man.napr of
+                   -2: if ((man.shag>0) and (man.shag <62)) then res := true;
+                    2: if ((man.shag>47) and (man.shag <109)) then res := true;
+                   end;
+                   end;
+
+               9:  begin
+                   if car.snij then res := true;
+                   end;
+
+           end; //case Таблица 2 (условия)
+       end; // end таблицы 2 (условия)
+//
+//-------------Таблица №3(Условия)  --------------------------------------------
+    3: begin   // 3
+
+           case message.LParam of    //c3
+               1:  begin
+                   if Image6.Visible then res := true;
+                   end;
+
+               2:  begin
+                   if man.go then res := true;
+                   end;
+
+               3:  begin
+                      case man.napr of
+                      -2: if man.shag =62 then res := true;
+                       2: if man.shag =47 then res := true;
+                      end;
+                   end;
+
+               4:  begin
+                   if man.shag =109 then res := true;
+                   end;
+
+           end; //case Таблица 3 (условия)
+       end; // end таблицы 3 (условия)
+//-------------------------------------------------
+end;  // case всех таблиц
+end; //If message.WParamHi=0
+//------------------------------------------------------------------------------
+                                 //   Действия
+//------------------------------------------------------------------------------
+ if message.WParamHi=1 then
+   Begin
+       case message.WParamLo of  // case na tabl
+//----------------------Таблица 1 действия--------------------------------------
+        1:  begin      //1
+              case message.LParam of
+                1: begin
+                   Image1.Left := 8;
+                   Image2.Left := 8;
+                   Image3.Left := 8;
+                   Image7.Top := 320;
+                   Form1.Image1.Visible := true;
+                   Form1.Image2.Visible := true;
+                   Form1.Image3.Visible := true;
+                   end;              //*
+                2: begin
+                   beg := false;
+                   kph := 'car';
+                   end;
+                3: begin
+                   kph := 'man';
+                   end;
+                4: begin
+                   kph := 'Light';
+                   randomize;
+                   rnd := random(100);
+                   if rnd<3 then begin
+                     if Image6.Visible then begin
+                        Image6.Visible := false;
+                        Image5.Visible := true;
+                                            end
+                     else begin
+                        Image5.Visible := false;
+                        Image6.Visible := true;
+                          end;
+
+                                  end;
+
+                   end;
+                5: begin
+                   kph := 'anoth';
+                   // проверяем все машины!
+                   for I := 1 to 10 do begin
+                       //Проверяем все машины которые проехали светофор
+                       if ((cars[i].Act)and(cars[i].Pict.Left<616 )) then begin
+                          //Прверяем те, которые уже доехали до конца
+                           if cars[i].Pict.Left=8 then begin
+                              cars[i].Act := false;
+                              cars[i].Pict.Visible := false;
+                              colact := colact-1;
+                                                       end;
+                           //не доехали до конца
+                           if cars[i].Pict.Left>8 then cars[i].Pict.Left := cars[i].Pict.Left -2;
+                                                                          end;
+                       //Проверяем все машины которые на светофоре
+                       if ((cars[i].Act)and(cars[i].Pict.Left=616 )) then begin
+                          if ((not(peshmesh))and (Image6.Visible ))  then
+                          cars[i].Pict.Left := cars[i].Pict.Left -2;
+                                                                          end;
+                       //Проверяем все машины которые еще до светофора
+                       if ((cars[i].Act)and(cars[i].Pict.Left>616 )) then begin
+                          if bligcar(i)>=80 then
+                          cars[i].Pict.Left := cars[i].Pict.Left -2;
+                                                                          end;
+                        //если  можно еще поставить машину (теоретически)
+                        if cars[i].Act= false then begin
+                        cars[i].Pict.Left:=720;
+                        randomize;
+                        rnd := random(3);
+                        if rnd=1 then cars[i].Pict.Top := 168;
+                        if rnd=2 then cars[i].Pict.Top := 218;
+                        rnd := random(100);
+                        if ((bligcar(i)>80)and(rnd>80)) then begin
+                            cars[i].Act:=true;
+                            cars[i].Pict.Visible := true;
+                                                             end;
+                                                   end;
+
+
+                                       end;
+
+
+                   end;              //*
+                6: begin
+                   Image1.Left := 8;
+                   Image2.Left := 8;
+                   Image3.Left := 8;
+                   Image8.Left := Image8.Left + 150;
+                   car.shagN:=0;
+                   end;
+                7: begin
+                   ShowMessage('Ура!!!');
+                   end;
+              end;  //case таблицы 1
+            end;  // конец таблицы 1
+//----------------------Таблица 2 Действия---------------------------------------
+        2:  begin      //2
+              case message.LParam of
+                1: begin
+                   if car.snij = false then forw
+                     else begin
+                          if car.hod<Car.urS then car.hod := car.hod+1 else begin
+                             car.hod := 0;
+                             car.urS := car.urS+1;
+                             forw;
+                                                                            end;
+                          end;
+                   end;
+
+                2: begin
+                   car.snij := true;
+                   end;
+
+                3: begin
+                   car.hod := 0;
+                   car.urS := 0;
+                   car.snij := false;
+                   end;
+
+                4: begin
+
+                   end;
+
+              end;  //case таблицы 2
+            end;  // конец таблицы 2
+//----------------------Действия 3----------------------------------------------
+        3:  begin      //3
+              case message.LParam of
+                1: begin
+                   delay(1);
+                   man.go := false;
+                   end;
+
+                2: begin
+                   forwpesh;
+                   man.go := true;
+                   end;
+
+                3: begin
+                   if man.napr=-2 then man.napr := 2 else man.napr := -2;
+                   man.shag:=0;
+                   end;
+
+              end;  //case таблицы 3
+            end;  // конец таблицы 3
+
+//----------------------------------------------------
+
+       end; // закончили
+res := true;
+   end;     //            действия
+
+if res then message.result:=1 else
+message.result:=0;
+
+end // end of case  na DEISTVIYA
+else inherited  WndProc(Message);
+end; // end // of proc wnd
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+MsgSIMPR:= RegisterWindowMessage(MESSAGE_STR);
+beg := true;
+Image6.Visible := true;
+man.napr := -2;
+car.hod:=0;
+car.urS:=0;
+Form1.Image1.Visible := false;
+Form1.Image2.Visible := false;
+Form1.Image3.Visible := false;
+anC := 0;
+colAct := 0;
+end;
+end.

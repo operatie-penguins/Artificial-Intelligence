@@ -1,0 +1,728 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, jpeg;
+
+const
+  MESSAGE_STR = 'MyMessage';
+
+type
+  TForm1 = class(TForm)
+    Fon: TImage;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    RadioGroup1: TRadioGroup;
+    Label1: TLabel;
+    Edit3: TEdit;
+    Label2: TLabel;
+    Memo1: TMemo;
+    mag11: TImage;
+    mag12: TImage;
+    mag21: TImage;
+    mag22: TImage;
+    mag1hur: TImage;
+    mag1vamp: TImage;
+    mag1kdl: TImage;
+    lyk1: TImage;
+    lyk2: TImage;
+    arrow: TImage;
+    bloodarrow: TImage;
+    tank1: TImage;
+    tank2: TImage;
+    utank1: TImage;
+    utank2: TImage;
+    hur: TImage;
+    vamp: TImage;
+    kdl: TImage;
+    bloodmag1: TImage;
+    Procedure WNDProc ( var Message: Tmessage); override;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    msgSIMPR:UINT;
+    ss1,ss2,ult:boolean;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure Delay(msecs : Longint);
+var FirstTick : longint;
+begin FirstTick:=GetTickCount;
+repeat Application.ProcessMessages;
+until GetTickCount-FirstTick >= msecs;
+end;
+
+procedure pr_mag11;
+begin
+  form1.mag12.Visible:=false;
+  form1.arrow.Visible:=false;
+  form1.bloodarrow.Visible:=false;
+  form1.mag11.Visible:=true;
+end;
+
+procedure pr_mag12;
+begin
+  form1.mag11.Visible:=false;
+  form1.mag12.Visible:=true;
+end;
+
+procedure pr_mag21;
+begin
+  form1.mag22.Visible:=false;
+  form1.mag21.Visible:=true;
+end;
+
+procedure pr_mag22;
+begin
+  form1.mag21.Visible:=false;
+  form1.mag22.Visible:=true;
+end;
+
+procedure pr_lyk1;
+begin
+  form1.lyk2.Visible:=false;
+  form1.lyk1.Visible:=true;
+end;
+
+procedure pr_lyk2;
+begin
+  form1.lyk1.Visible:=false;
+  form1.lyk2.Visible:=true;
+end;
+
+procedure pr_tank1;
+begin
+  form1.tank2.Visible:=false;
+  form1.bloodmag1.Visible:=false;
+  form1.utank2.Visible:=false;
+  form1.tank1.Visible:=true;
+end;
+
+procedure pr_tank2;
+begin
+  form1.tank1.Visible:=false;
+  form1.tank2.Visible:=true;
+  form1.bloodmag1.Visible:=true;
+end;
+
+procedure pr_utank1;
+begin
+  form1.tank1.Visible:=false;
+  form1.bloodmag1.Visible:=false;
+  form1.utank2.Visible:=false;
+  form1.utank1.Visible:=true;
+end;
+
+procedure pr_utank2;
+begin
+  form1.utank1.Visible:=false;
+  form1.utank2.Visible:=true;
+  form1.bloodmag1.Visible:=true;
+end;
+
+procedure pr_arrow;
+begin
+  form1.arrow.Visible:=true;
+  delay(1000);
+  form1.arrow.Visible:=false;
+end;
+
+procedure pr_bloodarrow;
+begin
+  form1.bloodarrow.Visible:=true;
+  delay(1000);
+  form1.bloodarrow.Visible:=false;
+end;
+
+procedure pr_mag1hur;
+begin
+  Form1.mag1hur.Visible:=true;
+  delay(1000);
+  Form1.mag1hur.Visible:=false;
+end;
+
+procedure pr_mag1vamp;
+begin
+  Form1.mag1vamp.Visible:=true;
+  delay(1000);
+  Form1.mag1vamp.Visible:=false;
+end;
+
+procedure pr_mag1kdl;
+begin
+  Form1.mag1kdl.Visible:=true;
+  delay(1000);
+  Form1.mag1kdl.Visible:=false;
+end;
+
+procedure pr_hur;
+begin
+  Form1.hur.Visible:=true;
+  delay(1000);
+  Form1.hur.Visible:=false;
+end;
+
+procedure pr_vamp;
+begin
+  Form1.vamp.Visible:=true;
+  delay(1000);
+  Form1.vamp.Visible:=false;
+end;
+
+procedure pr_kdl;
+begin
+  Form1.kdl.Visible:=true;
+  delay(1000);
+  Form1.kdl.Visible:=false;
+end;
+
+procedure TForm1.WndProc(var Message: TMessage);
+var res:boolean;
+    dmg:integer;
+begin
+  Randomize;
+  if message.Msg=msgSIMPR then
+   begin
+    //ПОЛУЧИЛИ СООБЩЕНИЕ!!!!!!!!!!
+    Res:=false;
+
+    if message.WParamHi=0 then
+    begin
+     //УСЛОВИЕ!!!!!!!!!!
+     case message.WParamLo of
+      //таблица1
+      1 : begin
+      Memo1.Lines.Add('Табл. 1');
+      case message.LParam of
+            1: begin // условие 1
+                if(ss1) then Res:=true;
+                Memo1.Lines.Add('Усл. 1 : ' + BoolToStr(Res));
+               end;
+            2: begin // условие 2
+                if(ss2) then Res:=true;
+                Memo1.Lines.Add('Усл. 2 : ' + BoolToStr(Res));
+               end;
+      end; {case}
+      end;
+
+      //таблица2
+      2 : begin
+      Memo1.Lines.Add('Табл. 2');
+      case message.LParam of
+            1: begin // условие 1
+                if(RadioGroup1.ItemIndex=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 1 : ' + BoolToStr(Res));
+               end;
+            2: begin // условие 2
+                if(RadioGroup1.ItemIndex=1) then Res:=true;
+                Memo1.Lines.Add('Усл. 2 : ' + BoolToStr(Res));
+               end;
+            3: begin // условие 3
+                if(RadioGroup1.ItemIndex=2) then Res:=true;
+                Memo1.Lines.Add('Усл. 3 : ' + BoolToStr(Res));
+               end;
+      end; {case}
+      end;
+
+      //таблица3
+      3 : begin
+      Memo1.Lines.Add('Табл. 3');
+      case message.LParam of
+            1: begin // условие 1
+                if(StrToInt(Edit1.Text)>666) then Res:=true;
+                Memo1.Lines.Add('Усл. 1 : ' + BoolToStr(Res));
+               end;
+            2: begin // условие 2
+                if(StrToInt(Edit1.Text)>333)and(StrToInt(Edit1.Text)<667) then Res:=true;
+                Memo1.Lines.Add('Усл. 2 : ' + BoolToStr(Res));
+               end;
+            3: begin // условие 3
+                if(StrToInt(Edit1.Text)<334)and(StrToInt(Edit1.Text)>0) then Res:=true;
+                Memo1.Lines.Add('Усл. 3 : ' + BoolToStr(Res));
+               end;
+            4: begin // условие 4
+                if(StrToInt(Edit2.Text)>666) then Res:=true;
+                Memo1.Lines.Add('Усл. 4 : ' + BoolToStr(Res));
+               end;
+            5: begin // условие 5
+                if(StrToInt(Edit2.Text)>333)and(StrToInt(Edit2.Text)<667) then Res:=true;
+                Memo1.Lines.Add('Усл. 5 : ' + BoolToStr(Res));
+               end;
+            6: begin // условие 6
+                if(StrToInt(Edit2.Text)<334)and(StrToInt(Edit2.Text)>0) then Res:=true;
+                Memo1.Lines.Add('Усл. 6 : ' + BoolToStr(Res));
+               end;
+            7: begin // условие 7
+                if(StrToInt(Edit1.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 7 : ' + BoolToStr(Res));
+               end;
+            8: begin // условие 8
+                if(StrToInt(Edit2.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 8 : ' + BoolToStr(Res));
+               end;
+      end; {case}
+      end;
+
+      //таблица4
+      4 : begin
+      Memo1.Lines.Add('Табл. 4');
+      case message.LParam of
+            1: begin // условие 1
+                if(StrToInt(Edit1.Text)>666) then Res:=true;
+                Memo1.Lines.Add('Усл. 1 : ' + BoolToStr(Res));
+               end;
+            2: begin // условие 2
+                if(StrToInt(Edit1.Text)>333)and(StrToInt(Edit1.Text)<667) then Res:=true;
+                Memo1.Lines.Add('Усл. 2 : ' + BoolToStr(Res));
+               end;
+            3: begin // условие 3
+                if(StrToInt(Edit1.Text)<334)and(StrToInt(Edit1.Text)>0) then Res:=true;
+                Memo1.Lines.Add('Усл. 3 : ' + BoolToStr(Res));
+               end;
+            4: begin // условие 4
+                if((random(99)+1) < 33 ) then Res:=true;
+                Memo1.Lines.Add('Усл. 4 : ' + BoolToStr(Res));
+               end;
+            5: begin // условие 5
+                if(StrToInt(Edit1.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 5 : ' + BoolToStr(Res));
+               end;
+            6: begin // условие 6
+                if(StrToInt(Edit2.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 6 : ' + BoolToStr(Res));
+               end;
+      end; {case}
+      end;
+
+      //таблица5
+      5 : begin
+      Memo1.Lines.Add('Табл. 5');
+      case message.LParam of
+            1: begin // условие 1
+                if(StrToInt(Edit1.Text)>666) then Res:=true;
+                Memo1.Lines.Add('Усл. 1 : ' + BoolToStr(Res));
+               end;
+            2: begin // условие 2
+                if(StrToInt(Edit1.Text)>333)and(StrToInt(Edit1.Text)<667) then Res:=true;
+                Memo1.Lines.Add('Усл. 2 : ' + BoolToStr(Res));
+               end;
+            3: begin // условие 3
+                if(StrToInt(Edit1.Text)<334)and(StrToInt(Edit1.Text)>0) then Res:=true;
+                Memo1.Lines.Add('Усл. 3 : ' + BoolToStr(Res));
+               end;
+            4: begin // условие 4
+                if(StrToInt(Edit2.Text)<1001)and(StrToInt(Edit2.Text)>0) then Res:=true;
+                Memo1.Lines.Add('Усл. 4 : ' + BoolToStr(Res));
+               end;
+            5: begin // условие 5
+                if(ult=true) then Res:=true;
+                Memo1.Lines.Add('Усл. 5 : ' + BoolToStr(Res));
+               end; 
+            6: begin // условие 6
+                if(StrToInt(Edit1.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 6 : ' + BoolToStr(Res));
+               end;
+            7: begin // условие 7
+                if(StrToInt(Edit2.Text)=0) then Res:=true;
+                Memo1.Lines.Add('Усл. 7 : ' + BoolToStr(Res));
+               end;
+      end; {case}
+      end;
+     end; {case}
+    end; {условие}
+
+    if message.WParamHi=1 then
+    begin
+    //Действие!!!!!!!!!!
+     case message.WParamLo of
+      //таблица 1
+      1 : begin
+      case message.LParam of
+          1: begin // действие 1
+              delay(100);
+             end;
+      end; {case}
+      end;
+
+      //таблица 2
+      2 : begin
+      case message.LParam of
+          1: begin // действие 1
+              pr_mag11;
+              pr_mag21;
+              Edit1.Text:='1000';
+              Edit2.Text:='1000';
+             end;
+          2: begin // действие 2
+              pr_mag11;
+              pr_lyk1;
+              Edit1.Text:='1000';
+              Edit2.Text:='2000';
+             end;
+          3: begin // действие 3
+              pr_mag11;
+              pr_tank1;
+              ult:=false;
+              Edit1.Text:='1000';
+              Edit2.Text:='3000';
+             end;
+      end; {case}
+      end;
+
+      //таблица 3
+      3 : begin
+      case message.LParam of
+          1: begin // действие 1
+              pr_mag12;
+              pr_hur;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr( StrToInt(Edit2.Text) - dmg );
+              pr_mag11;
+             end;
+          2: begin // действие 2
+              pr_mag12;
+              pr_vamp;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              Edit1.Text:=IntToStr(StrToInt(Edit1.Text)+round(dmg/2));
+              pr_mag11;
+             end;
+          3: begin // действие 3
+              pr_mag12;
+              pr_kdl;
+              dmg:=100+400-StrToInt(Edit1.Text);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+             end;
+          4: begin // действие 4
+              pr_mag22;
+              pr_mag1hur;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_mag21;
+             end;
+          5: begin // действие 5
+              pr_mag22;
+              pr_mag1vamp;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              Edit2.Text:=IntToStr(StrToInt(Edit2.Text)+round(dmg/2));
+              pr_mag21;
+             end;
+          6: begin // действие 6
+              pr_mag22;
+              pr_mag1kdl;
+              dmg:=100+400-StrToInt(Edit2.Text);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_mag21;
+             end;
+          7: begin // действие 7
+              Edit3.Text:='Победа игрока 2';
+              form1.mag11.Visible:=false;
+              delay(3000);
+              Edit3.Text:='';
+              form1.mag21.Visible:=false;
+              ss1:=true;
+              ss2:=false;
+             end;
+          8: begin // действие 8
+              Edit3.Text:='Победа игрока 1';
+              form1.mag21.Visible:=false;
+              delay(3000);
+              Edit3.Text:='';
+              form1.mag11.Visible:=false;
+              ss1:=true;
+              ss2:=false;
+             end;
+          9: begin // действие 9
+              Edit3.Text:='Ничья';
+              form1.mag11.Visible:=false;
+              form1.mag21.Visible:=false;
+              delay(3000);
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+      end; {case}
+      end;
+
+      //таблица 4
+      4 : begin
+      case message.LParam of
+          1: begin // действие 1
+              pr_mag12;
+              pr_hur;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_lyk2;
+              pr_arrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+             end;
+          2: begin // действие 2
+              pr_mag12;
+              pr_vamp;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              Edit1.Text:=IntToStr(StrToInt(Edit1.Text)+round(dmg/2));
+              pr_mag11;
+              pr_lyk2;
+              pr_arrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+             end;
+          3: begin // действие 3
+              pr_mag12;
+              pr_kdl;
+              dmg:=100+400-StrToInt(Edit1.Text);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_lyk2;
+              pr_arrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+             end;
+          4: begin // действие 4
+              pr_mag12;
+              pr_hur;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_lyk2;
+              pr_bloodarrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg*2) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-round(dmg*2));
+             end;
+          5: begin // действие 5
+              pr_mag12;
+              pr_vamp;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              Edit1.Text:=IntToStr(StrToInt(Edit1.Text)+round(dmg/2));
+              pr_mag11;
+              pr_lyk2;
+              pr_bloodarrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg*2) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-round(dmg*2)); ;
+             end;
+          6: begin // действие 6
+              pr_mag12;
+              pr_kdl;
+              dmg:=100+400-StrToInt(Edit1.Text);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_lyk2;
+              pr_bloodarrow;
+              pr_lyk1;
+              dmg:=100+random(50);
+              if (StrToInt(Edit1.Text) < dmg*2) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-round(dmg*2));
+             end;
+          7: begin // действие 7
+              Edit3.Text:='Победа игрока 2';
+              form1.mag11.Visible:=false;
+              delay(3000);
+              form1.lyk1.Visible:=false;
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+          8: begin // действие 8
+              Edit3.Text:='Победа игрока 1';
+              form1.lyk1.Visible:=false;
+              delay(3000);
+              form1.mag11.Visible:=false;
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+          9: begin // действие 9
+              Edit3.Text:='Ничья';
+              form1.mag11.Visible:=false;
+              form1.lyk1.Visible:=false;
+              delay(3000);
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+      end; {case}
+      end;
+
+      //таблица 5
+      5 : begin
+      case message.LParam of
+          1: begin // действие 1
+              pr_mag12;
+              pr_hur;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_tank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_tank1;
+             end;
+          2: begin // действие 2
+              pr_mag12;
+              pr_vamp;
+              dmg:=100+random(50);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              Edit1.Text:=IntToStr(StrToInt(Edit1.Text)+round(dmg/2));
+              pr_mag11;
+              pr_tank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_tank1;
+             end;
+          3: begin // действие 3
+              pr_mag12;
+              pr_kdl;
+              dmg:=100+400-StrToInt(Edit1.Text);
+              if (StrToInt(Edit2.Text) < dmg) then Edit2.Text:='0'
+              else Edit2.Text:=IntToStr(StrToInt(Edit2.Text)-dmg);
+              pr_mag11;
+              pr_tank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_tank1;
+             end;
+          4: begin // действие 4
+              pr_utank1;
+              delay(1000);
+              pr_utank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_utank1;
+              delay(1000);
+              pr_utank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_utank1;
+              delay(1000);
+              pr_utank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_utank1;
+              delay(1000);
+              pr_utank2;
+              delay(1000);
+              dmg:=55+random(25);
+              if (StrToInt(Edit1.Text) < dmg) then Edit1.Text:='0'
+              else Edit1.Text:=IntToStr(StrToInt(Edit1.Text)-dmg);
+              pr_tank1;
+              ult:=true;
+             end; {case}
+          5: begin // действие 5
+              Edit3.Text:='Победа игрока 2';
+              form1.mag11.Visible:=false;
+              delay(3000);
+              form1.tank1.Visible:=false;
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+          6: begin // действие 6
+              Edit3.Text:='Победа игрока 1';
+              form1.tank1.Visible:=false;
+              delay(3000);
+              form1.mag11.Visible:=false;
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+          7: begin // действие 7
+              Edit3.Text:='Ничья';
+              form1.tank1.Visible:=false;
+              form1.mag11.Visible:=false;
+              delay(3000);
+              Edit3.Text:='';
+              ss1:=true;
+              ss2:=false;
+             end;
+      end;{case}
+     end;{case}
+     end;
+     res:=true;
+    end;
+
+ //Выдали результат!!!!!!!!!
+   if res then   message.Result:=1
+   else   message.Result:=0;
+   end
+    else inherited WndProc(Message); // на другие сообщения
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ss1:=false;
+  ss2:=false;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  ss1:=true;
+  ss2:=true;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  MsgSIMPR:=RegisterWindowMessage(MESSAGE_STR);
+  ss1:=false;
+  ss2:=true;
+end;
+
+
+end.
+ 

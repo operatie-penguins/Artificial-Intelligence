@@ -1,0 +1,48 @@
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\WindowsApplication4\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Мои документы\Visual Studio 2005\Projects\ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ 2103ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\tmp\Desktop\ФИНАЛ доделаный2103ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\Кэв\Рабочий стол\ФИНАЛ 2доделаный2103ostanovka\ФИНАЛ 2доделаный2103ostanovka\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\bin\Debug\WindowsApplication4.exe
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\bin\Debug\WindowsApplication4.pdb
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\WindowsApplication4.Form1.resources
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\WindowsApplication4.Properties.Resources.resources
+C:\Documents and Settings\tmp\Desktop\Слава_Остановка_На_золото\ostanovka1706\obj\Debug\WindowsApplication4.csproj.GenerateResource.Cache
